@@ -991,7 +991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eec1f144b7d7cb4c9d4a341ce8f4943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testItem: {fileID: 11400000, guid: 3b0ba8a4e72a9d544b07bcbf4408e8d0, type: 2}
+  testItem: {fileID: 11400000, guid: 63c70a48162816a4298494e879b780d4, type: 2}
   testItem1: {fileID: 11400000, guid: ac5701b7f7705964291ab772970b57d8, type: 2}
 --- !u!4 &707318574
 Transform:
