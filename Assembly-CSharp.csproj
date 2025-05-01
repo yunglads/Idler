@@ -68,11 +68,12 @@
     <Compile Include="Assets\Scripts\UI\CraftingRecipeUI.cs" />
     <Compile Include="Assets\Scripts\UI\InventorySlotUI.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\UI\InventoryUIManager.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\UI\RaidUIManager.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\ResourceManager.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\UI\SkillUIManager.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\CraftingManager.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Skill.cs" />
-    <Compile Include="Assets\Scripts\ScriptableObjects\Resource.cs" />
+    <Compile Include="Assets\Scripts\Handlers\RaidUIHandler.cs" />
     <Compile Include="Assets\Scripts\UI\SkillUI.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\EquipmentItem.cs" />
     <Compile Include="Assets\Scripts\DebugInventory.cs" />
@@ -82,6 +83,9 @@
     <Compile Include="Assets\Scripts\UI\ResourceUI.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\SkillManager.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\CraftingRecipe.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\RaidBehavior.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\Raid.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\GatherOutput.cs" />
     <Compile Include="Assets\Scripts\Handlers\DragHandler.cs" />
     <Compile Include="Assets\Scripts\OfflineProgress.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\InventoryManager.cs" />

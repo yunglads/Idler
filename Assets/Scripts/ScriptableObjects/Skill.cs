@@ -11,7 +11,6 @@ public class Skill : ScriptableObject
     public Item outputItem;
     public float minInterval = 2f;
     public float maxInterval = 5f;
-    //public float gatherInterval = Random.Range(2f, 5f);
     public int baseXPPerGather = 5;
     public bool removalSkill = false;
 }

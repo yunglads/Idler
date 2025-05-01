@@ -20,16 +20,6 @@ public class InventoryManager : MonoBehaviour
         items[item] += count;
     }
 
-    //public void RemoveItem(Item item, int count = 1)
-    //{
-    //    if (items.ContainsKey(item))
-    //    {
-    //        items[item] -= count;
-    //        if (items[item] <= 0)
-    //            items.Remove(item);
-    //    }
-    //}
-
     public void RemoveItem(Item item, int count = 1)
     {
         if (!items.ContainsKey(item)) return;

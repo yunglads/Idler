@@ -52,4 +52,16 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+
+    public void OpenRaidUI()
+    {
+        foreach (var go in uiPanels)
+        {
+            if (go.name == "RaidsPanel")
+            {
+                CloseAllUI();
+                go.SetActive(true);
+            }
+        }
+    }
 }
