@@ -1,14 +1,16 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Unity.Mathematics;
 
 public class SkillUIHandler : MonoBehaviour
 {
     public TextMeshProUGUI skillNameText;
     public TextMeshProUGUI levelText;
-    public Slider xpSlider;
+    public Slider timerSlider;
     public Button toggleButton;
     public TextMeshProUGUI toggleButtonText;
+    public Image skillIcon;
     //public TextMeshProUGUI itemText;
 
     private SkillBehavior skillBehavior;
@@ -19,23 +21,37 @@ public class SkillUIHandler : MonoBehaviour
         this.skill = skill;
         this.skillBehavior = behavior;
         skillNameText.text = skill.skillName;
+        skillIcon.sprite = skill.skillIcon;
 
-        toggleButton.onClick.AddListener(() =>
+        if (!behavior.isActive)
         {
-            skillBehavior.ToggleActive();
-            UpdateToggleText();
-        });
+            toggleButton.onClick.AddListener(() =>
+            {
+                OnClickStartSkill();
+                UpdateToggleText();
+            });
+        } 
     }
 
     void Update()
     {
-        float xp = SkillManager.Instance.GetXP(skill);
         int level = SkillManager.Instance.GetLevel(skill);
-
         levelText.text = $"Lvl {level}";
-        xpSlider.value = xp % 100f / 100f;
 
-        double amount = InventoryManager.Instance.GetAmount(skill.outputItem);
+        float setTimer = skillBehavior.timer;
+        float setInterval = skillBehavior.interval;
+        if (setTimer > 0 && setInterval > 0) 
+        {
+            timerSlider.value = setTimer % setInterval / setInterval;
+        }
+        else
+        {
+            timerSlider.value = 0f;
+        }
+        
+        print(setTimer + " : " +  setInterval);
+
+        //int amount = InventoryManager.Instance.GetAmount(skill.outputItem);
         //itemText.text = $"{skill.outputItem.itemName}: {amount:0}";
 
         UpdateToggleText();
@@ -44,6 +60,11 @@ public class SkillUIHandler : MonoBehaviour
     void UpdateToggleText()
     {
         toggleButtonText.text = skillBehavior.isActive ? "Stop" : "Start";
+    }
+
+    public void OnClickStartSkill()
+    {
+        skillBehavior.RequestStart();
     }
 }
 

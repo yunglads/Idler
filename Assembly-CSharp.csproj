@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Core\Managers\SkillManager.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\CraftingRecipe.cs" />
     <Compile Include="Assets\Scripts\Gameplay\RaidBehavior.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Raid.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\GatherOutput.cs" />
     <Compile Include="Assets\Scripts\Handlers\DragHandler.cs" />

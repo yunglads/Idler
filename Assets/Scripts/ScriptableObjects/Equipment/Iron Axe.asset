@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Iron Axe
   m_EditorClassIdentifier: 
   itemName: Iron Axe
-  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: dd30124538076dc4ca535080715c70db, type: 3}
   itemType: 1
   isStackable: 0
   slot: 0
   relevantSkills: 01000000
   gatherSpeedMultiplier: 2
   xpGainMultiplier: 2
+  survivabilityMultiplier: 1

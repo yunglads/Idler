@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Ammo
   m_EditorClassIdentifier: 
   itemName: Ammo
-  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: 9cefde737b22ada4680288b1b12ec53b, type: 3}
   itemType: 0
   isStackable: 1

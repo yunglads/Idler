@@ -5,7 +5,7 @@ public class RaidBehavior : MonoBehaviour
     public Raid raid;
     private float timer;
     public bool isActive = false;
-    //public bool resourceRemovalSkill = false;
+    public bool raidSuccessful = true;
 
     void Update()
     {
@@ -18,7 +18,7 @@ public class RaidBehavior : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if (timer >= gatherInterval)
+        if (timer >= gatherInterval && raidSuccessful)
         {
             timer = 0;
             foreach (var lootItem in raid.outputItems)

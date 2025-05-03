@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EquipmentSlot { Tool, Armor, Accessory }
+public enum EquipmentSlot { Tool, Armor, Accessory, Weapon, Helmet, Backpack, Melee }
 
 [CreateAssetMenu(menuName = "IdleGame/Equipment Item")]
 public class EquipmentItem : Item
@@ -12,5 +12,6 @@ public class EquipmentItem : Item
     [Header("Bonuses")]
     public float gatherSpeedMultiplier = 1f;
     public float xpGainMultiplier = 1f;
+    public float survivabilityMultiplier = 1f;
 }
 

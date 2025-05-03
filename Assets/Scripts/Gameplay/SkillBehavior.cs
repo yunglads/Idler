@@ -3,17 +3,20 @@ using UnityEngine;
 public class SkillBehavior : MonoBehaviour
 {
     public Skill skill;
-    private float timer;
+    public float timer;
+    public float interval;
     public bool isActive = false;
-    //public bool resourceRemovalSkill = false;
+
+    public bool generateInterval = false;
 
     void Update()
     {
         if (!isActive) return;
 
-        float gatherInterval = Random.Range(skill.minInterval, skill.maxInterval);
-        float speedMult = EquipmentManager.Instance.GetGatherSpeedMultiplier(skill.skillType);
-        float interval = gatherInterval / speedMult;
+        if (!generateInterval)
+        {
+            GenerateGatherInterval();
+        }
 
         timer += Time.deltaTime;
 
@@ -25,7 +28,9 @@ public class SkillBehavior : MonoBehaviour
             SkillManager.Instance.AddXP(skill, skill.baseXPPerGather * xpBonus);
             InventoryUIManager.Instance.Refresh();
 
-            print(skill + " current xp: " + xpBonus.ToString());
+            generateInterval = false;
+
+            print(skill + " current xp: " + skill.baseXPPerGather * xpBonus);
         }
 
         if (timer >= interval && skill.removalSkill)
@@ -34,11 +39,13 @@ public class SkillBehavior : MonoBehaviour
             InventoryManager.Instance.RemoveItem(skill.outputItem, 1);
             SkillManager.Instance.AddXP(skill, skill.baseXPPerGather);
             InventoryUIManager.Instance.Refresh();
+
+            generateInterval = false;
         }
 
         if (skill.removalSkill && InventoryManager.Instance.GetAmount(skill.outputItem) < 1)
         {
-            ToggleActive();
+            SkillManager.Instance.StopCurrentSkill();
             print("Not enough resource");
         }
     }
@@ -46,5 +53,40 @@ public class SkillBehavior : MonoBehaviour
     public void ToggleActive()
     {
         isActive = !isActive;
+    }
+
+    public void RequestStart()
+    {
+        if (SkillManager.Instance.GetActiveSkill() == this)
+        {
+            SkillManager.Instance.StopCurrentSkill();
+        }
+        else if (SkillManager.Instance.GetActiveSkill() != this || SkillManager.Instance.GetActiveSkill() == this && !isActive)
+        {
+            SkillManager.Instance.StartSkill(this);
+        }
+    }
+
+    public void StartSkill()
+    {
+        isActive = true;
+        Debug.Log(skill.skillName + " started.");
+        // Begin your coroutine or tick logic here
+    }
+
+    public void StopSkill()
+    {
+        isActive = false;
+        Debug.Log(skill.skillName + " stopped.");
+        // Stop coroutines/timers here
+    }
+
+    void GenerateGatherInterval()
+    {
+        float gatherInterval = Random.Range(skill.minInterval, skill.maxInterval);
+        float speedMult = EquipmentManager.Instance.GetGatherSpeedMultiplier(skill.skillType);
+        interval = gatherInterval / speedMult;
+
+        generateInterval = true;
     }
 }

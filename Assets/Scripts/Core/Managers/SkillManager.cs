@@ -4,6 +4,7 @@ using UnityEngine;
 public class SkillManager : MonoBehaviour
 {
     public static SkillManager Instance;
+    private SkillBehavior activeSkill;
 
     public Dictionary<Skill, float> skillXP = new();
     public Dictionary<Skill, int> skillLevel = new();
@@ -22,6 +23,31 @@ public class SkillManager : MonoBehaviour
         // Optional: Leveling system
         int level = Mathf.FloorToInt(skillXP[skill] / 100);
         skillLevel[skill] = Mathf.Max(skillLevel.GetValueOrDefault(skill), level);
+    }
+
+    public void StartSkill(SkillBehavior skillToStart)
+    {
+        if (activeSkill != null && activeSkill != skillToStart)
+        {
+            StopCurrentSkill();
+        }
+
+        activeSkill = skillToStart;
+        activeSkill.StartSkill();
+    }
+
+    public void StopCurrentSkill()
+    {
+        if (activeSkill != null)
+        {
+            activeSkill.StopSkill();
+            activeSkill = null;
+        }
+    }
+
+    public SkillBehavior GetActiveSkill()
+    {
+        return activeSkill;
     }
 
     public float GetXP(Skill skill) => skillXP.GetValueOrDefault(skill, 0);

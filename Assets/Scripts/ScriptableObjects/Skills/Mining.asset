@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Mining
   m_EditorClassIdentifier: 
   skillName: Mining
+  skillType: 0
   outputItem: {fileID: 11400000, guid: 429610792f56d0841a7221c1aeff11b5, type: 2}
-  gatherInterval: 2
+  skillIcon: {fileID: 21300000, guid: 64adeac27f997a74c9205466a8e5060f, type: 3}
+  minInterval: 2
+  maxInterval: 5
   baseXPPerGather: 5
   removalSkill: 0

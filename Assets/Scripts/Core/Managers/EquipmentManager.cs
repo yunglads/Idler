@@ -50,5 +50,18 @@ public class EquipmentManager : MonoBehaviour
         }
         return bonus;
     }
+
+    public float GetSurvivabilityMultiplier()
+    {
+        float bonus = 1f;
+        foreach (var item in equipped.Values)
+        {
+            if (item != null)
+            {
+                bonus *= item.survivabilityMultiplier;
+            }
+        }
+        return bonus;
+    }
 }
 

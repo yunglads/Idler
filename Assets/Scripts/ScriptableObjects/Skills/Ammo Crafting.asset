@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Ammo Crafting
   m_EditorClassIdentifier: 
   skillName: Ammo Crafting
+  skillType: 0
   outputItem: {fileID: 11400000, guid: eba086d80e2145248b1679bc4be68e07, type: 2}
+  skillIcon: {fileID: 21300000, guid: 5cd09e9ac70aca547afbed52f075e6a8, type: 3}
   minInterval: 2
   maxInterval: 5
   baseXPPerGather: 5

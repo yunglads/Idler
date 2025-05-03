@@ -7,6 +7,12 @@ public class EquipmentSlotUI : MonoBehaviour, IDropHandler
 {
     public EquipmentSlot slotType;
     public Image icon;
+    public TMP_Text labelText;
+
+    void Start()
+    {
+        labelText.text = slotType.ToString();
+    }
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -15,8 +21,6 @@ public class EquipmentSlotUI : MonoBehaviour, IDropHandler
         {
             if (equip.slot == slotType)
             {
-                
-
                 EquipmentManager.Instance.Equip(equip);
                 icon.sprite = equip.icon;
                 icon.enabled = true;
