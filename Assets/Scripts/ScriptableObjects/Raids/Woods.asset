@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13060a8af38b1074b8c584bbc6b7860e, type: 3}
-  m_Name: TestRaid
+  m_Name: Woods
   m_EditorClassIdentifier: 
   raidName: Woods
   outputItems:
@@ -25,7 +25,8 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 53bbdf50531b57642835a5a904e7b3b9, type: 2}
     minAmount: 1
     maxAmount: 5
-    dropChance: 0.895
+    dropChance: 0.5
   minInterval: 5
   maxInterval: 10
   baseXPPerGather: 5
+  survivalRate: 0

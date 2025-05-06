@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\Gameplay\RaidBehavior.cs" />
     <Compile Include="Assets\Scripts\Gameplay\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Raid.cs" />
+    <Compile Include="Assets\Scripts\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\GatherOutput.cs" />
     <Compile Include="Assets\Scripts\Handlers\DragHandler.cs" />
     <Compile Include="Assets\Scripts\OfflineProgress.cs" />

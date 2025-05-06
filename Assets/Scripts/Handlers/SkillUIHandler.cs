@@ -49,7 +49,7 @@ public class SkillUIHandler : MonoBehaviour
             timerSlider.value = 0f;
         }
         
-        print(setTimer + " : " +  setInterval);
+        //print(setTimer + " : " +  setInterval);
 
         //int amount = InventoryManager.Instance.GetAmount(skill.outputItem);
         //itemText.text = $"{skill.outputItem.itemName}: {amount:0}";

@@ -6,6 +6,7 @@ public class RaidUIHandler : MonoBehaviour
 {
     public TextMeshProUGUI raidNameText;
     public TextMeshProUGUI raidTimeText;
+    public TextMeshProUGUI raidSurvivalRateText;
     public Transform lootPanel;
     public GameObject lootIconPrefab;
     //public Slider xpSlider;
@@ -46,6 +47,7 @@ public class RaidUIHandler : MonoBehaviour
         //int level = SkillManager.Instance.GetLevel(raid);
 
         raidTimeText.text = raid.minInterval + " - " + raid.maxInterval;
+        raidSurvivalRateText.text = raid.survivalRate * 100 + "%";
         //xpSlider.value = xp % 100f / 100f;
 
         //double amount = InventoryManager.Instance.GetAmount(raid.outputItem);

@@ -1,11 +1,12 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class EquipmentManager : MonoBehaviour
 {
     public static EquipmentManager Instance;
+
+    public EquipmentSlotUI[] slots;
+    public List<EquipmentItem> equipmentItems;
 
     private void Awake()
     {
@@ -18,7 +19,43 @@ public class EquipmentManager : MonoBehaviour
     public void Equip(EquipmentItem item)
     {
         equipped[item.slot] = item;
+
+        equipmentItems.Add(item);
     }
+
+    public void Unequip(EquipmentItem item)
+    {
+        equipped[item.slot] = null;
+
+        equipmentItems.Remove(item);
+    }
+
+    public void RemoveAllEquipment()
+    {
+        foreach (var equipedItem in equipmentItems)
+        {
+            if (equipedItem.slot != EquipmentSlot.Tool)
+            {
+                equipped[equipedItem.slot] = null;
+                equipmentItems.Remove(equipedItem);
+            }     
+        }
+
+        foreach (var slot in slots)
+        {
+            if (slot.slotType != EquipmentSlot.Tool)
+            {
+                slot.Clear();
+            }
+        }
+
+        print("Operation finished");
+    }
+
+    //public void DestroyEquippedItem(EquipmentItem item)
+    //{
+    //    equipped[item.slot] = null; 
+    //}
 
     public EquipmentItem GetEquippedItem(EquipmentSlot slot)
     {

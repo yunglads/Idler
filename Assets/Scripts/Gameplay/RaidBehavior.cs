@@ -1,22 +1,33 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class RaidBehavior : MonoBehaviour
 {
     public Raid raid;
     private float timer;
     public bool isActive = false;
-    public bool raidSuccessful = true;
+    private bool raidSuccessful = true;
 
     void Update()
     {
         if (!isActive) return;
 
         float gatherInterval = Random.Range(raid.minInterval, raid.maxInterval);
-        
-        //float speedMult = EquipmentManager.Instance.GetGatherSpeedMultiplier(skill.skillType);
-        //float interval = gatherInterval / speedMult;
 
         timer += Time.deltaTime;
+
+        if (Random.value <= raid.survivalRate)
+        {
+            raidSuccessful = true;
+            
+            print("Raid sucessful");
+        }
+        else
+        {
+            raidSuccessful = false;
+            print("Raid failed");
+        }
 
         if (timer >= gatherInterval && raidSuccessful)
         {
@@ -29,13 +40,14 @@ public class RaidBehavior : MonoBehaviour
                     InventoryManager.Instance.AddItem(lootItem.item, randomAmount);
                 }          
             }
-            
-            //float xpBonus = EquipmentManager.Instance.GetXPBonusMultiplier(raid.skillType);
-            //SkillManager.Instance.AddXP(raid, raid.baseXPPerGather * xpBonus);
             InventoryUIManager.Instance.Refresh();
             ToggleActive();
-
-            //print(raid + " current xp: " + xpBonus.ToString());
+        }
+        else if (timer >= gatherInterval && !raidSuccessful)
+        {
+            EquipmentManager.Instance.RemoveAllEquipment();
+            timer = 0;
+            ToggleActive();
         }
     }
 

@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : MonoBehaviour, IDropHandler
 {
     public static InventoryManager Instance;
 
@@ -38,5 +39,28 @@ public class InventoryManager : MonoBehaviour
     items.ContainsKey(item) && items[item] >= count;
 
     public Dictionary<Item, int> GetAllItems() => items;
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        EquipmentSlotUI dragged = DragHandler.Instance.equipDragSource;
+        if (dragged != null && dragged.item is EquipmentItem equip)
+        {
+            AddItem(equip);
+            EquipmentManager.Instance.Unequip(equip);
+            dragged.Clear();
+            DragHandler.Instance.EndDrag();
+            InventoryUIManager.Instance.Refresh();
+
+            //if (equip.slot == slotType)
+            //{
+            //    EquipmentManager.Instance.Equip(equip);
+            //    icon.sprite = equip.icon;
+            //    icon.enabled = true;
+
+            //    InventoryManager.Instance.AddItem(equip);
+            //    dragged.Clear();
+            //}
+        }
+    }
 }
 

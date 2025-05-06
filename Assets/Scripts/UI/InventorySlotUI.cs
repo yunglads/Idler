@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class InventorySlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class InventorySlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler //IDropHandler
 {
     public Image icon;
     public TextMeshProUGUI countText;
@@ -36,10 +36,32 @@ public class InventorySlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public void Clear()
     {
+        icon.enabled = false;
         item = null;
         count = 0;
-        icon.enabled = false;
         countText.text = "";
     }
+
+    //public void OnDrop(PointerEventData eventData)
+    //{
+    //    EquipmentSlotUI dragged = DragHandler.Instance.equipDragSource;
+    //    if (dragged != null && dragged.item is EquipmentItem equip)
+    //    {
+    //        InventoryManager.Instance.AddItem(equip);
+    //        dragged.Clear();
+    //        DragHandler.Instance.EndDrag();
+    //        InventoryUIManager.Instance.Refresh();
+
+    //        //if (equip.slot == slotType)
+    //        //{
+    //        //    EquipmentManager.Instance.Equip(equip);
+    //        //    icon.sprite = equip.icon;
+    //        //    icon.enabled = true;
+
+    //        //    InventoryManager.Instance.AddItem(equip);
+    //        //    dragged.Clear();
+    //        //}
+    //    }
+    //}
 }
 

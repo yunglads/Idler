@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DragHandler : MonoBehaviour
@@ -7,7 +9,8 @@ public class DragHandler : MonoBehaviour
 
     public Image dragImage;
     public Canvas canvas;
-    public InventorySlotUI dragSource;
+    public InventorySlotUI invDragSource;
+    public EquipmentSlotUI equipDragSource;
 
     void Awake()
     {
@@ -17,7 +20,14 @@ public class DragHandler : MonoBehaviour
 
     public void StartDrag(InventorySlotUI source)
     {
-        dragSource = source;
+        invDragSource = source;
+        dragImage.sprite = source.icon.sprite;
+        dragImage.enabled = true;
+    }
+
+    public void StartDrag(EquipmentSlotUI source)
+    {
+        equipDragSource = source;
         dragImage.sprite = source.icon.sprite;
         dragImage.enabled = true;
     }
@@ -35,7 +45,8 @@ public class DragHandler : MonoBehaviour
     public void EndDrag()
     {
         dragImage.enabled = false;
-        dragSource = null;
+        invDragSource = null;
+        equipDragSource = null;
     }
 }
 
