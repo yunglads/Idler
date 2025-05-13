@@ -12,6 +12,7 @@ public class EquipmentItem : Item
     [Header("Bonuses")]
     public float gatherSpeedMultiplier = 1f;
     public float xpGainMultiplier = 1f;
-    public float survivabilityMultiplier = 1f;
+    public int bonusDamage = 0;
+    public int bonusDefense = 0;
 }
 

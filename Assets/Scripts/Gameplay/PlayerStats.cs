@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : CombatantStats
 {
     public static PlayerStats Instance;
 
-    public float health = 100f;
+    public int maxHealth = 100;
 
     private void Awake()
     {
@@ -12,15 +12,8 @@ public class PlayerStats : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void PayForHeals()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        health = maxHealth;
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class EquipmentManager : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class EquipmentManager : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        foreach (var slot in slots)
+        {
+            slot.Clear();
+        }
     }
 
     private Dictionary<EquipmentSlot, EquipmentItem> equipped = new();
@@ -21,10 +27,15 @@ public class EquipmentManager : MonoBehaviour
         equipped[item.slot] = item;
 
         equipmentItems.Add(item);
+
+        ApplyBonus(item);
     }
 
     public void Unequip(EquipmentItem item)
     {
+        PlayerStats.Instance.damage -= item.bonusDamage;
+        PlayerStats.Instance.defense -= item.bonusDefense;
+
         equipped[item.slot] = null;
 
         equipmentItems.Remove(item);
@@ -32,13 +43,14 @@ public class EquipmentManager : MonoBehaviour
 
     public void RemoveAllEquipment()
     {
-        foreach (var equipedItem in equipmentItems)
+        foreach (var equipedItem in new List<EquipmentItem>(equipmentItems))
         {
             if (equipedItem.slot != EquipmentSlot.Tool)
             {
+                RemoveBonus(equipedItem);
                 equipped[equipedItem.slot] = null;
                 equipmentItems.Remove(equipedItem);
-            }     
+            }
         }
 
         foreach (var slot in slots)
@@ -51,11 +63,6 @@ public class EquipmentManager : MonoBehaviour
 
         print("Operation finished");
     }
-
-    //public void DestroyEquippedItem(EquipmentItem item)
-    //{
-    //    equipped[item.slot] = null; 
-    //}
 
     public EquipmentItem GetEquippedItem(EquipmentSlot slot)
     {
@@ -88,17 +95,16 @@ public class EquipmentManager : MonoBehaviour
         return bonus;
     }
 
-    public float GetSurvivabilityMultiplier()
+    public void ApplyBonus(EquipmentItem item)
     {
-        float bonus = 1f;
-        foreach (var item in equipped.Values)
-        {
-            if (item != null)
-            {
-                bonus *= item.survivabilityMultiplier;
-            }
-        }
-        return bonus;
+        PlayerStats.Instance.damage += item.bonusDamage;
+        PlayerStats.Instance.defense += item.bonusDefense;
+    }
+
+    public void RemoveBonus(EquipmentItem item)
+    {
+        PlayerStats.Instance.damage -= item.bonusDamage;
+        PlayerStats.Instance.defense -= item.bonusDefense;
     }
 }
 

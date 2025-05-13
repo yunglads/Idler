@@ -16,9 +16,10 @@ MonoBehaviour:
   itemDesc: 
   icon: {fileID: 21300000, guid: 119967e16cbb57c46a019ef5505a859b, type: 3}
   itemType: 2
-  isStackable: 0
+  isStackable: 1
   slot: 1
   relevantSkills: 
-  gatherSpeedMultiplier: 1
-  xpGainMultiplier: 1
-  survivabilityMultiplier: 2
+  gatherSpeedMultiplier: 0
+  xpGainMultiplier: 0
+  bonusDamage: 0
+  bonusDefense: 1

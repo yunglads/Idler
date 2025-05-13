@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -7,7 +9,7 @@ public class RaidBehavior : MonoBehaviour
     public Raid raid;
     private float timer;
     public bool isActive = false;
-    private bool raidSuccessful = true;
+    public bool raidSuccessful = true;
 
     void Update()
     {
@@ -17,19 +19,7 @@ public class RaidBehavior : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if (Random.value <= raid.survivalRate)
-        {
-            raidSuccessful = true;
-            
-            print("Raid sucessful");
-        }
-        else
-        {
-            raidSuccessful = false;
-            print("Raid failed");
-        }
-
-        if (timer >= gatherInterval && raidSuccessful)
+        if (isActive && timer >= gatherInterval && raidSuccessful)
         {
             timer = 0;
             foreach (var lootItem in raid.outputItems)
@@ -43,10 +33,11 @@ public class RaidBehavior : MonoBehaviour
             InventoryUIManager.Instance.Refresh();
             ToggleActive();
         }
-        else if (timer >= gatherInterval && !raidSuccessful)
+        else if (isActive && !raidSuccessful)
         {
-            EquipmentManager.Instance.RemoveAllEquipment();
+            EquipmentManager.Instance.RemoveAllEquipment();   
             timer = 0;
+            raidSuccessful = true;
             ToggleActive();
         }
     }

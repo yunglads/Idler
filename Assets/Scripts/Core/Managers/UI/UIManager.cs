@@ -6,7 +6,8 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        OpenSkillsUI();
+        OpenRaidUI();
+        Invoke("OpenSkillsUI", .01f);
     }
 
     public void CloseAllUI()
@@ -58,6 +59,18 @@ public class UIManager : MonoBehaviour
         foreach (var go in uiPanels)
         {
             if (go.name == "RaidsPanel")
+            {
+                CloseAllUI();
+                go.SetActive(true);
+            }
+        }
+    }
+
+    public void OpenFightUI()
+    {
+        foreach (var go in uiPanels)
+        {
+            if (go.name == "FightsPanel")
             {
                 CloseAllUI();
                 go.SetActive(true);

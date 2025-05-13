@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 276d30f7ff690854fa7fa9b0abdda96f, type: 3}
-  m_Name: 9mm Pistol
+  m_Name: Tool 1
   m_EditorClassIdentifier: 
-  itemName: 9mm Pistol
-  icon: {fileID: 21300000, guid: 7a42b49854f54534ea794b488acf1c1f, type: 3}
-  itemType: 3
-  isStackable: 0
-  slot: 3
+  itemName: Helmet 2
+  itemDesc: 
+  icon: {fileID: 21300000, guid: cec12270328cfc74e8a08825cc94de7d, type: 3}
+  itemType: 1
+  isStackable: 1
+  slot: 0
   relevantSkills: 
   gatherSpeedMultiplier: 1
   xpGainMultiplier: 1
-  survivabilityMultiplier: 1.2
+  survivabilityMultiplier: 1

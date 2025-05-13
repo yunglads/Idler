@@ -64,7 +64,10 @@
     <Compile Include="Assets\Scripts\Core\Managers\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\SkillBehavior.cs" />
     <Compile Include="Assets\Scripts\UI\EquipmentSlotUI.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\EquipmentManager.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\FightController.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\CombatantStats.cs" />
     <Compile Include="Assets\Scripts\UI\CraftingRecipeUI.cs" />
     <Compile Include="Assets\Scripts\UI\InventorySlotUI.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\UI\InventoryUIManager.cs" />
@@ -74,6 +77,7 @@
     <Compile Include="Assets\Scripts\Core\Managers\CraftingManager.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Skill.cs" />
     <Compile Include="Assets\Scripts\Handlers\RaidUIHandler.cs" />
+    <Compile Include="Assets\Scripts\Core\Managers\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\UI\SkillUI.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\EquipmentItem.cs" />
     <Compile Include="Assets\Scripts\DebugInventory.cs" />

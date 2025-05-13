@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class OfflineProgress : MonoBehaviour
@@ -12,7 +13,7 @@ public class OfflineProgress : MonoBehaviour
             TimeSpan offlineTime = DateTime.Now - lastTime;
 
             double offlineWood = offlineTime.TotalSeconds / 2; // e.g., 1 wood every 2 seconds
-            //ResourceManager.Instance.AddAmount("Wood", offlineWood);
+            //InventoryManager.Instance.AddItem(item, offlineWood.ConvertTo<int>());
         }
     }
 
