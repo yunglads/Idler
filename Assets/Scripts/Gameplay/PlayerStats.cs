@@ -4,6 +4,7 @@ public class PlayerStats : CombatantStats
 {
     public static PlayerStats Instance;
 
+    public Sprite playerIcon;
     public int maxHealth = 100;
 
     private void Awake()

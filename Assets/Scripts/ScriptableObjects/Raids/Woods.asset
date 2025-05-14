@@ -26,11 +26,8 @@ MonoBehaviour:
     minAmount: 1
     maxAmount: 5
     dropChance: 0.5
-  minInterval: 60
-  maxInterval: 120
+  minInterval: 10
+  maxInterval: 20
   baseXPPerGather: 5
   minEncounters: 1
   maxEncounters: 2
-  enemyHealth: 100
-  enemyDamage: 1
-  enemyDefense: 1

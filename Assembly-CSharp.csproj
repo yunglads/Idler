@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\UI\CraftingRecipeUI.cs" />
     <Compile Include="Assets\Scripts\UI\InventorySlotUI.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\UI\InventoryUIManager.cs" />
+    <Compile Include="Assets\Scripts\Handlers\FightUIHandler.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\UI\RaidUIManager.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\ResourceManager.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\UI\SkillUIManager.cs" />

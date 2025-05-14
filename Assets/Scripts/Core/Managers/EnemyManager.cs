@@ -7,14 +7,16 @@ public class EnemyManager : MonoBehaviour
 
     public EnemyStats GetRandomEnemy()
     {
-        //int index = Random.Range(0, enemyTypes.Count);
-        //return enemyTypes[index]; // Optionally clone if you want a fresh instance
-
         float totalChance = 0f;
 
         foreach (var enemy in enemyTypes)
         {
             totalChance += enemy.spawnChance;
+
+            if (enemy.health <= 0)
+            {
+                enemy.health = enemy.maxHealth;
+            }
         }
 
         float roll = Random.Range(0f, totalChance);
