@@ -18,6 +18,8 @@ public class FightController : MonoBehaviour
     public string attackResult;
     public Button closeUIButton;
 
+    private int totalEncounters;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -30,11 +32,6 @@ public class FightController : MonoBehaviour
         {
             raids = FindObjectsByType<RaidBehavior>(FindObjectsSortMode.None);
             print("looking for raids");
-        }
-
-        if (behavior != null && !behavior.isActive) 
-        {
-            closeUIButton.gameObject.SetActive(true);
         }
     }
 
@@ -75,9 +72,8 @@ public class FightController : MonoBehaviour
     {
         closeUIButton.gameObject.SetActive(false);
 
-        EnemyStats baseEnemy = enemyManager.GetRandomEnemy();
-
-        currentEnemy = baseEnemy;
+        //EnemyStats baseEnemy = enemyManager.GetRandomEnemy();
+        //currentEnemy = baseEnemy;
 
         foreach (RaidBehavior raid in raids)
         {
@@ -87,38 +83,63 @@ public class FightController : MonoBehaviour
             }
         }
 
+        totalEncounters = Random.Range(behavior.raid.minEncounters, behavior.raid.maxEncounters);
+        print("Total Encounters: " + totalEncounters);
+
         StartCoroutine(FightLoop());
     }
 
-    public IEnumerator FightLoop(float interval = 3f)
+    public IEnumerator FightLoop(float interval = 2f)
     {
-        while (player.health > 0 && currentEnemy.health > 0)
+        while (totalEncounters > 0)
         {
-            yield return new WaitForSeconds(interval);
+            EnemyStats baseEnemy = enemyManager.GetRandomEnemy();
+            currentEnemy = baseEnemy;
 
-            // Player attacks
-            SimulateAttack(player, currentEnemy, "Player", currentEnemy.enemyName);
-            if (currentEnemy.health <= 0)
+            while (player.health > 0 && currentEnemy.health > 0)
             {
-                currentEnemy.health = 0;
-                behavior.raidSuccessful = true;
-                Debug.Log("Enemy defeated!");
-                yield break; // Stop the loop
+                yield return new WaitForSeconds(interval);
+
+                // Player attacks
+                SimulateAttack(player, currentEnemy, "Player", currentEnemy.enemyName);
+                if (currentEnemy.health <= 0)
+                {
+                    currentEnemy.health = 0;
+                    //behavior.raidSuccessful = true;
+                    totalEncounters--;
+                    Debug.Log("Enemy defeated!");
+                    print("Remaining Encounters: " + totalEncounters);
+                    break; // Stop the loop
+                }
+
+                yield return new WaitForSeconds(interval);
+
+                // Enemy attacks
+                SimulateAttack(currentEnemy, player, currentEnemy.enemyName, "Player");
+                if (player.health <= 0)
+                {
+                    player.health = 0;
+                    behavior.raidSuccessful = false;
+                    totalEncounters = 0;
+                    Debug.Log("Player defeated!");
+                    break; // Stop the loop
+                }
+
+                yield return new WaitForSeconds(interval);
             }
 
-            yield return new WaitForSeconds(interval);
+            //totalEncounters--;
 
-            // Enemy attacks
-            SimulateAttack(currentEnemy, player, currentEnemy.enemyName, "Player");
-            if (player.health <= 0)
+            if (totalEncounters > 0)
             {
-                player.health = 0;
-                behavior.raidSuccessful = false;
-                Debug.Log("Player defeated!");
-                yield break; // Stop the loop
+                float waitTime = Random.Range(3, 10);
+                Debug.Log($"Waiting {waitTime:F1}s until next encounter...");
+                yield return new WaitForSeconds(waitTime);
             }
-
-            yield return new WaitForSeconds(interval);
         }
+
+        behavior.raidSuccessful = true;
+        closeUIButton.gameObject.SetActive(true);
+        Debug.Log("Raid complete!");
     }
 }

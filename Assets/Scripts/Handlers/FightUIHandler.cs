@@ -7,7 +7,7 @@ public class FightUI : MonoBehaviour
 {
     public Image playerIcon, enemyIcon;
     public TMP_Text playerHealthText, playerDamageText, playerDefenseText, enemyHealthText, enemyDamageText, enemyDefenseText;
-    public TMP_Text attackResultText;
+    public TMP_Text playerName, enemyName, attackResultText;
 
     // Update is called once per frame
     void Update()
@@ -22,6 +22,7 @@ public class FightUI : MonoBehaviour
         enemyHealthText.text = "Health: " + FightController.Instance.currentEnemy.health.ToString();
         enemyDamageText.text = "Damage: " + FightController.Instance.currentEnemy.damage.ToString();
         enemyDefenseText.text = "Defense: " + FightController.Instance.currentEnemy.defense.ToString();
+        enemyName.text = FightController.Instance.currentEnemy.enemyName;
 
         attackResultText.text = FightController.Instance.attackResult;
     }

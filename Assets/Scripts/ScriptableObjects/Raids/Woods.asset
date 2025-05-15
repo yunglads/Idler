@@ -26,8 +26,8 @@ MonoBehaviour:
     minAmount: 1
     maxAmount: 5
     dropChance: 0.5
-  minInterval: 10
-  maxInterval: 20
+  minInterval: 30
+  maxInterval: 60
   baseXPPerGather: 5
-  minEncounters: 1
-  maxEncounters: 2
+  minEncounters: 2
+  maxEncounters: 4

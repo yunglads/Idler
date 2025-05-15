@@ -16,7 +16,7 @@ MonoBehaviour:
   itemDesc: 
   icon: {fileID: 21300000, guid: 7eb881f6a0aa0e64ea41583de081b99d, type: 3}
   itemType: 3
-  isStackable: 1
+  isStackable: 0
   slot: 3
   relevantSkills: 
   gatherSpeedMultiplier: 0

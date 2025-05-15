@@ -33,8 +33,7 @@ public class EquipmentManager : MonoBehaviour
 
     public void Unequip(EquipmentItem item)
     {
-        PlayerStats.Instance.damage -= item.bonusDamage;
-        PlayerStats.Instance.defense -= item.bonusDefense;
+        RemoveBonus(item);
 
         equipped[item.slot] = null;
 

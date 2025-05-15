@@ -7,7 +7,7 @@ using UnityEngine.Rendering;
 public class RaidBehavior : MonoBehaviour
 {
     public Raid raid;
-    private float timer;
+    public float timer;
     public bool isActive = false;
     public bool raidSuccessful = true;
 
