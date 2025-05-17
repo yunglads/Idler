@@ -5,25 +5,15 @@ using TMPro;
 
 public class CraftingRecipeUI : MonoBehaviour
 {
-    public TextMeshProUGUI recipeNameText;
+    public TMP_Text recipeNameText;
     public Button craftButton;
     public Image resultIcon;
+    public TMP_Text resultAmountText;
     public Transform ingredientPanel;
+    public TMP_Text ingredientName;
     public GameObject ingredientIconPrefab;
 
     private CraftingRecipe recipe;
-
-    //private void Update()
-    //{
-    //    if (CraftingManager.Instance.CanCraft(recipe) == false)
-    //    {
-    //        craftButton.enabled = false;
-    //    }
-    //    else
-    //    {
-    //        craftButton.enabled = true;
-    //    }
-    //}
 
     public void Setup(CraftingRecipe newRecipe)
     {
@@ -31,6 +21,11 @@ public class CraftingRecipeUI : MonoBehaviour
         recipeNameText.text = recipe.recipeName;
         resultIcon.sprite = recipe.result.icon;
 
+        if (recipe.resultAmount > 1)
+        {
+            resultAmountText.text = recipe.resultAmount.ToString();
+        }
+        
         // Clear old icons
         foreach (Transform child in ingredientPanel)
             Destroy(child.gameObject);
@@ -40,10 +35,15 @@ public class CraftingRecipeUI : MonoBehaviour
         {
             GameObject iconObj = Instantiate(ingredientIconPrefab, ingredientPanel);
             Image iconImage = iconObj.GetComponent<Image>();
-            TextMeshProUGUI countText = iconObj.GetComponentInChildren<TextMeshProUGUI>();
+            TextMeshProUGUI[] texts = iconObj.GetComponentsInChildren<TextMeshProUGUI>();
 
             iconImage.sprite = ingredient.item.icon;
-            countText.text = ingredient.amount.ToString();
+
+            if (texts.Length > 0 )
+                texts[0].text = ingredient.amount.ToString();
+
+            if (texts.Length > 1)
+                texts[1].text = ingredient.item.itemName;
         }
 
         craftButton.onClick.RemoveAllListeners();

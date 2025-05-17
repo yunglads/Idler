@@ -468,7 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -912,3 +912,4 @@ MonoBehaviour:
   lootIconPrefab: {fileID: 6732244488483054895, guid: c2db8138599a5ac42b643fe393a4c457, type: 3}
   toggleButton: {fileID: 6217378380928591768}
   toggleButtonText: {fileID: 5490902136468690431}
+  uiManager: {fileID: 0}

@@ -2,14 +2,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
-using static UnityEditor.Progress;
 
-public class EquipmentSlotUI : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class EquipmentSlotUI : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
     public EquipmentSlot slotType;
     public Image icon;
     public Item item;
     public TMP_Text labelText;
+
+    private float lastClickTime = 0f;
+    private const float doubleClickThreshold = 0.3f;
+    public ItemPopup itemPopup;
 
     void Start()
     {
@@ -19,9 +22,7 @@ public class EquipmentSlotUI : MonoBehaviour, IDropHandler, IBeginDragHandler, I
     public void Setup(Item newItem)
     {
         item = newItem;
-        //count = newCount;
         icon.sprite = item.icon;
-        //countText.text = item.isStackable ? count.ToString() : "";
         icon.enabled = true;
     }
 
@@ -51,7 +52,7 @@ public class EquipmentSlotUI : MonoBehaviour, IDropHandler, IBeginDragHandler, I
     public void OnDrop(PointerEventData eventData)
     {
         InventorySlotUI dragged = DragHandler.Instance.invDragSource;
-        if (dragged != null && dragged.item is EquipmentItem equip)
+        if (dragged != null && dragged.inventoryItem.item is EquipmentItem equip)
         {
             if (equip.slot == slotType)
             {
@@ -67,6 +68,19 @@ public class EquipmentSlotUI : MonoBehaviour, IDropHandler, IBeginDragHandler, I
                 InventoryUIManager.Instance.Refresh();
             }
         }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (Time.time - lastClickTime < doubleClickThreshold)
+        {
+            if (item != null)
+            {
+                itemPopup.Show(item);
+            }
+        }
+
+        lastClickTime = Time.time;
     }
 }
 

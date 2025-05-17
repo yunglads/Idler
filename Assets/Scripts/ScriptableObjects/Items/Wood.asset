@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Wood
   m_EditorClassIdentifier: 
   itemName: Wood
+  itemDesc: 
   icon: {fileID: 21300000, guid: 7bae35d06d4e5cc4c9f62695c38e6440, type: 3}
   itemType: 0
   isStackable: 1
+  maxStack: 10

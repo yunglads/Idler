@@ -86,7 +86,9 @@
     <Compile Include="Assets\Scripts\Handlers\SkillUIHandler.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\UI\ResourceUI.cs" />
+    <Compile Include="Assets\Scripts\UI\ItemPopup.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\SkillManager.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\InventoryItem.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\CraftingRecipe.cs" />
     <Compile Include="Assets\Scripts\Gameplay\RaidBehavior.cs" />
     <Compile Include="Assets\Scripts\Gameplay\PlayerStats.cs" />

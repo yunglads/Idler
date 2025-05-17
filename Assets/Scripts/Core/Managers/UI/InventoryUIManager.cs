@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryUIManager : MonoBehaviour
@@ -23,11 +24,23 @@ public class InventoryUIManager : MonoBehaviour
         foreach (Transform child in inventoryGrid)
             Destroy(child.gameObject);
 
-        foreach (var pair in InventoryManager.Instance.GetAllItems())
+        List<InventoryItem> allItems = InventoryManager.Instance.GetAllItems();
+
+        int maxSlots = InventoryManager.Instance.maxInventorySize;
+
+        for (int i = 0; i < maxSlots; i++)
         {
             GameObject go = Instantiate(slotPrefab, inventoryGrid);
             InventorySlotUI ui = go.GetComponent<InventorySlotUI>();
-            ui.Setup(pair.Key, pair.Value);
+
+            if (i < allItems.Count)
+            {
+                ui.Setup(allItems[i]);
+            }
+            else
+            {
+                ui.Setup(null); // Empty slot
+            }
         }
     }
 }

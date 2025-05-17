@@ -3,24 +3,45 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class InventorySlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler //IDropHandler
+public class InventorySlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
     public Image icon;
     public TextMeshProUGUI countText;
-    public Item item;
-    public int count;
+    public InventoryItem inventoryItem;
 
-    public void Setup(Item newItem, int newCount)
+    private float lastClickTime = 0f;
+    private const float doubleClickThreshold = 0.3f;
+    public ItemPopup itemPopup;
+
+    private void Awake()
     {
-        item = newItem;
-        count = newCount;
-        icon.sprite = item.icon;
-        countText.text = item.isStackable ? count.ToString() : "";
-        icon.enabled = true;
+        itemPopup = FindAnyObjectByType<ItemPopup>();
+    }
+
+    public void Setup(InventoryItem newItem)
+    {
+        inventoryItem = newItem;
+
+        if (inventoryItem?.item != null)
+        {
+            icon.sprite = inventoryItem.item.icon;
+            icon.enabled = true;
+
+            countText.text = inventoryItem.item.isStackable && inventoryItem.count > 1
+                ? inventoryItem.count.ToString()
+                : "";
+        }
+        else
+        {
+            icon.enabled = false;
+            countText.text = "";
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (inventoryItem == null || inventoryItem.item == null) return;
+
         DragHandler.Instance.StartDrag(this);
     }
 
@@ -36,32 +57,25 @@ public class InventorySlotUI : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public void Clear()
     {
+        inventoryItem = null;
         icon.enabled = false;
-        item = null;
-        count = 0;
         countText.text = "";
     }
 
-    //public void OnDrop(PointerEventData eventData)
-    //{
-    //    EquipmentSlotUI dragged = DragHandler.Instance.equipDragSource;
-    //    if (dragged != null && dragged.item is EquipmentItem equip)
-    //    {
-    //        InventoryManager.Instance.AddItem(equip);
-    //        dragged.Clear();
-    //        DragHandler.Instance.EndDrag();
-    //        InventoryUIManager.Instance.Refresh();
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (inventoryItem == null || inventoryItem.item == null) return;
 
-    //        //if (equip.slot == slotType)
-    //        //{
-    //        //    EquipmentManager.Instance.Equip(equip);
-    //        //    icon.sprite = equip.icon;
-    //        //    icon.enabled = true;
+        if (Time.time - lastClickTime < doubleClickThreshold)
+        {
+            if (inventoryItem?.item != null)
+            {
+                itemPopup.Show(inventoryItem.item);
+            }
+        }
 
-    //        //    InventoryManager.Instance.AddItem(equip);
-    //        //    dragged.Clear();
-    //        //}
-    //    }
-    //}
+        lastClickTime = Time.time;
+    }
 }
+
 
