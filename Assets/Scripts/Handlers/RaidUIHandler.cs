@@ -48,7 +48,7 @@ public class RaidUIHandler : MonoBehaviour
         {
             raidBehavior.ToggleActive();
             uiManager.OpenFightUI();
-            FightController.Instance.StartRaid();
+            //FightController.Instance.StartRaid();
             UpdateToggleText();
         });
     }

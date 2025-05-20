@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
     {
         foreach (var go in uiPanels)
         {
-            if (go.name == "FightsPanel")
+            if (go.name == "FightUI")
             {
                 CloseAllUI();
                 go.SetActive(true);

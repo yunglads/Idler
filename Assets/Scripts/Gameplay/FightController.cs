@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,13 +13,13 @@ public class FightController : MonoBehaviour
 
     public RaidBehavior[] raids;
     public RaidBehavior behavior;
+    public FightUIHandler handler;
 
     public int d20Roll;
     public int damageDealt;
+    public bool encountersSuccessful = false;
     public string attackResult;
-    public Button closeUIButton;
-
-    private int totalEncounters;
+    //public Button closeUIButton;
 
     private void Awake()
     {
@@ -33,6 +34,45 @@ public class FightController : MonoBehaviour
             raids = FindObjectsByType<RaidBehavior>(FindObjectsSortMode.None);
             print("looking for raids");
         }
+    }
+
+    public IEnumerator StartFight(RaidBehavior callingRaid)
+    {
+        behavior = callingRaid;
+        EnemyStats baseEnemy = enemyManager.GetRandomEnemy();
+        currentEnemy = baseEnemy;
+
+        PlayerStats player = PlayerStats.Instance;
+
+        handler.ShowFightPanel();
+
+        while (player.health > 0 && currentEnemy.health > 0)
+        {
+            yield return new WaitForSeconds(3f);
+            SimulateAttack(player, currentEnemy, "Player", currentEnemy.enemyName);
+
+            if (currentEnemy.health <= 0)
+            {
+                currentEnemy.health = 0;
+                handler.ForceUpdateUI();
+
+                yield return null; // Give the UI a frame to process
+                break;
+            }
+
+            yield return new WaitForSeconds(3f);
+            SimulateAttack(currentEnemy, player, currentEnemy.enemyName, "Player");
+
+            if (player.health <= 0)
+            {
+                player.health = 0;
+                callingRaid.raidSuccessful = false;
+                break;
+            }
+        }
+
+        yield return new WaitForSeconds(2f);
+        handler.ShowRaidingPanelDelayed(1f);
     }
 
     private void SimulateAttack(CombatantStats attacker, CombatantStats defender, string attackerName, string defenderName)
@@ -65,81 +105,6 @@ public class FightController : MonoBehaviour
         // Log result
         string critText = isCrit ? " (Critical!)" : "";
         //Debug.Log($"{attackerName} hits {defenderName} for {damageDealt} damage{critText}. {defenderName} health: {defender.health}");
-        attackResult = $"{attackerName} hits {defenderName} for {damageDealt} damage{critText}. {defenderName} health: {defender.health}";
-    }
-
-    public void StartRaid()
-    {
-        closeUIButton.gameObject.SetActive(false);
-
-        //EnemyStats baseEnemy = enemyManager.GetRandomEnemy();
-        //currentEnemy = baseEnemy;
-
-        foreach (RaidBehavior raid in raids)
-        {
-            if (raid.isActive)
-            {
-                behavior = raid;
-            }
-        }
-
-        totalEncounters = Random.Range(behavior.raid.minEncounters, behavior.raid.maxEncounters);
-        print("Total Encounters: " + totalEncounters);
-
-        StartCoroutine(FightLoop());
-    }
-
-    public IEnumerator FightLoop(float interval = 2f)
-    {
-        while (totalEncounters > 0)
-        {
-            EnemyStats baseEnemy = enemyManager.GetRandomEnemy();
-            currentEnemy = baseEnemy;
-
-            while (player.health > 0 && currentEnemy.health > 0)
-            {
-                yield return new WaitForSeconds(interval);
-
-                // Player attacks
-                SimulateAttack(player, currentEnemy, "Player", currentEnemy.enemyName);
-                if (currentEnemy.health <= 0)
-                {
-                    currentEnemy.health = 0;
-                    //behavior.raidSuccessful = true;
-                    totalEncounters--;
-                    Debug.Log("Enemy defeated!");
-                    print("Remaining Encounters: " + totalEncounters);
-                    break; // Stop the loop
-                }
-
-                yield return new WaitForSeconds(interval);
-
-                // Enemy attacks
-                SimulateAttack(currentEnemy, player, currentEnemy.enemyName, "Player");
-                if (player.health <= 0)
-                {
-                    player.health = 0;
-                    behavior.raidSuccessful = false;
-                    totalEncounters = 0;
-                    Debug.Log("Player defeated!");
-                    break; // Stop the loop
-                }
-
-                yield return new WaitForSeconds(interval);
-            }
-
-            //totalEncounters--;
-
-            if (totalEncounters > 0)
-            {
-                float waitTime = Random.Range(3, 10);
-                Debug.Log($"Waiting {waitTime:F1}s until next encounter...");
-                yield return new WaitForSeconds(waitTime);
-            }
-        }
-
-        behavior.raidSuccessful = true;
-        closeUIButton.gameObject.SetActive(true);
-        Debug.Log("Raid complete!");
+        attackResult = $"{attackerName} hits {defenderName} for {damageDealt} damage{critText}.";
     }
 }

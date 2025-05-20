@@ -9,7 +9,7 @@ public class Raid : ScriptableObject
     public List<GatherOutput> outputItems;
     public float minInterval = 5f;
     public float maxInterval = 10f;
-    public int baseXPPerGather = 5;
+    //public int baseXPPerGather = 5;
     public int minEncounters = 1;
     public int maxEncounters = 2;
 }
