@@ -8,6 +8,7 @@ public class SkillUIHandler : MonoBehaviour
     public TextMeshProUGUI skillNameText;
     public TextMeshProUGUI levelText;
     public Slider timerSlider;
+    public Slider levelSlider;
     public Button toggleButton;
     public TextMeshProUGUI toggleButtonText;
     public Image skillIcon;
@@ -37,6 +38,7 @@ public class SkillUIHandler : MonoBehaviour
     {
         int level = SkillManager.Instance.GetLevel(skill);
         levelText.text = $"Lvl {level}";
+        levelSlider.value = SkillManager.Instance.GetXPPercentToNextLevel(skill);
 
         float setTimer = skillBehavior.timer;
         float setInterval = skillBehavior.interval;
@@ -48,11 +50,6 @@ public class SkillUIHandler : MonoBehaviour
         {
             timerSlider.value = 0f;
         }
-        
-        //print(setTimer + " : " +  setInterval);
-
-        //int amount = InventoryManager.Instance.GetAmount(skill.outputItem);
-        //itemText.text = $"{skill.outputItem.itemName}: {amount:0}";
 
         UpdateToggleText();
     }

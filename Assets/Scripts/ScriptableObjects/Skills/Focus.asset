@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9832f6fb6dda9fe4a95f492e6bb9c188, type: 3}
-  m_Name: Pistols
+  m_Name: Focus
   m_EditorClassIdentifier: 
-  skillName: Pistols
-  skillType: 2
-  outputItem: {fileID: 11400000, guid: eba086d80e2145248b1679bc4be68e07, type: 2}
-  skillIcon: {fileID: 21300000, guid: 90eb3e5b127d26e4eb5997ab854bfb0f, type: 3}
-  minInterval: 4
-  maxInterval: 8
-  baseXPPerGather: 5
+  skillName: Focus
+  skillType: 3
+  outputItem: {fileID: 11400000, guid: 3e7ce08abfe48a740a0d06153d20ac56, type: 2}
+  skillIcon: {fileID: 21300000, guid: 7f11c6e9b62374748922f6e210325a76, type: 3}
+  minInterval: 1
+  maxInterval: 2
+  baseXPPerGather: 100
   removalSkill: 1

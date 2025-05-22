@@ -34,14 +34,32 @@ public class FightController : MonoBehaviour
             raids = FindObjectsByType<RaidBehavior>(FindObjectsSortMode.None);
             print("looking for raids");
         }
+
+        //if (behavior != null && behavior.name == "Woods")
+        //{
+        //    enemyManager = GameObject.Find("WoodsEnemyManager").GetComponent<EnemyManager>();
+        //}
+        //if (behavior != null && behavior.name == "Mountians")
+        //{
+        //    enemyManager = GameObject.Find("MtsEnemyManager").GetComponent<EnemyManager>();
+        //}
     }
 
     public IEnumerator StartFight(RaidBehavior callingRaid)
     {
         behavior = callingRaid;
+
+        if (behavior.name == "Woods")
+        {
+            enemyManager = GameObject.Find("WoodsEnemyManager").GetComponent<EnemyManager>();
+        }
+        if (behavior.name == "Mountians")
+        {
+            enemyManager = GameObject.Find("MtsEnemyManager").GetComponent<EnemyManager>();
+        }
+
         EnemyStats baseEnemy = enemyManager.GetRandomEnemy();
         currentEnemy = baseEnemy;
-
         PlayerStats player = PlayerStats.Instance;
 
         handler.ShowFightPanel();

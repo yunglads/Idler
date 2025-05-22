@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum SkillType { Mining, Logging }
+public enum SkillType { Mining, Logging, Pistol, Focus }
 
 [CreateAssetMenu(fileName = "New Skill", menuName = "IdleGame/Skill")]
 

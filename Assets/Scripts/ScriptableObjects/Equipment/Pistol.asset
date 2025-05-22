@@ -21,8 +21,8 @@ MonoBehaviour:
   isStackable: 0
   maxStack: 1
   slot: 3
-  relevantSkills: 
+  relevantSkills: 0200000003000000
   gatherSpeedMultiplier: 0
-  xpGainMultiplier: 0
+  xpGainMultiplier: 1.2
   bonusDamage: 3
   bonusDefense: 0

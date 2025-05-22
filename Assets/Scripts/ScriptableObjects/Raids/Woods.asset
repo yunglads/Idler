@@ -17,19 +17,19 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: eba086d80e2145248b1679bc4be68e07, type: 2}
     minAmount: 1
     maxAmount: 10
-    setAmount: 6
+    setAmount: 4
     dropChance: 1
   - item: {fileID: 11400000, guid: 09f056e00f03b7d46b3f316b9bd8d45d, type: 2}
     minAmount: 5
     maxAmount: 25
-    setAmount: 17
+    setAmount: 7
     dropChance: 1
   - item: {fileID: 11400000, guid: 53bbdf50531b57642835a5a904e7b3b9, type: 2}
     minAmount: 1
     maxAmount: 5
-    setAmount: 3
+    setAmount: 4
     dropChance: 1
   minInterval: 20
   maxInterval: 60
-  minEncounters: 2
+  minEncounters: 1
   maxEncounters: 3

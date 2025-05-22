@@ -1,0 +1,11 @@
+itemName,itemDesc,iconPath,itemType,isStackable,maxStack
+Iron Ore,A chunk of raw iron,Icons/Skills/Skillicon7_09,Resource,true,99
+Steel Sword,A sharp blade made of steel,Icons/Skills/Skillicon7_09,Weapon,false,1
+Leather Armor,Lightweight protective gear,Icons/Skills/Skillicon7_09,Armor,false,1
+Health Potion,Restores a small amount of health,Icons/Skills/Skillicon7_09,Consumable,true,20
+Pickaxe,Used to mine ores,Icons/Skills/Skillicon7_09,Tool,false,1
+Copper Bar,Smelted copper ready for use,Icons/Skills/Skillicon7_09,Resource,true,99
+Mana Potion,Restores a small amount of mana,Icons/Skills/Skillicon7_09,Consumable,true,20
+Steel Helmet,Sturdy head protection,Icons/Skills/Skillicon7_09,Armor,false,1
+Wooden Club,Crude weapon made from wood,Icons/Skills/Skillicon7_09,Weapon,false,1
+Stone Block,Used for building,Icons/Skills/Skillicon7_09,Resource,true,99

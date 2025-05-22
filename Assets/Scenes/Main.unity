@@ -1624,6 +1624,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0021bcf6e2346cd4f822338f553d1ccf, type: 2}
   - {fileID: 11400000, guid: c6ef570a10f4ae24a97b59296ba5c4f5, type: 2}
   - {fileID: 11400000, guid: 010366c19d1aa2d49a2e9f66360d6b1c, type: 2}
+  - {fileID: 11400000, guid: 1824f86c1194d7344aa0395635303516, type: 2}
   skillUIPrefab: {fileID: 7558168741932816473, guid: 169b9969fb6245d4f909d150dfeeeb23, type: 3}
   skillUIParent: {fileID: 137200864}
 --- !u!4 &252897695
@@ -2250,7 +2251,7 @@ GameObject:
   - component: {fileID: 583769094}
   - component: {fileID: 583769093}
   m_Layer: 0
-  m_Name: EnemyManager
+  m_Name: WoodsEnemyManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2270,9 +2271,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyTypes:
   - {fileID: 145618636}
-  - {fileID: 1310191513}
   - {fileID: 1579153069}
   - {fileID: 1877925405}
+  - {fileID: 1310191513}
 --- !u!4 &583769094
 Transform:
   m_ObjectHideFlags: 0
@@ -2413,6 +2414,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603317689}
   m_CullTransparentMesh: 1
+--- !u!1 &652325582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 652325583}
+  - component: {fileID: 652325584}
+  m_Layer: 0
+  m_Name: Killa
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &652325583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652325582}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1165577249}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &652325584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652325582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95557b9a0836a3e4eb47c5a67ac9cf24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  defense: 1
+  health: 20
+  critChance: 0.1
+  critMultiplier: 2
+  dodgeChance: 0.1
+  damageVariance: 0.1
+  enemyName: Killa
+  enemyIcon: {fileID: 21300000, guid: 3c9dce8be0a04ac4b8fb8d28f4304401, type: 3}
+  maxHealth: 20
+  spawnChance: 0.5
 --- !u!1 &682361919
 GameObject:
   m_ObjectHideFlags: 0
@@ -2717,6 +2773,9 @@ MonoBehaviour:
   items:
   - {fileID: 11400000, guid: db967b896dcee9f4fb96efd1ef85a85a, type: 2}
   - {fileID: 11400000, guid: c8b839a32d0699f49850c137665f2a71, type: 2}
+  - {fileID: 11400000, guid: 3e7ce08abfe48a740a0d06153d20ac56, type: 2}
+  - {fileID: 11400000, guid: 3e7ce08abfe48a740a0d06153d20ac56, type: 2}
+  - {fileID: 11400000, guid: 3e7ce08abfe48a740a0d06153d20ac56, type: 2}
 --- !u!4 &707318574
 Transform:
   m_ObjectHideFlags: 0
@@ -4529,6 +4588,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126199629}
   m_CullTransparentMesh: 1
+--- !u!1 &1165577247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1165577249}
+  - component: {fileID: 1165577248}
+  m_Layer: 0
+  m_Name: MtsEnemyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1165577248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165577247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a1079289d2edc4ea8621aedcfff813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyTypes:
+  - {fileID: 652325584}
+  - {fileID: 1472574845}
+--- !u!4 &1165577249
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165577247}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 567.3348, y: 319.09198, z: -0.74631995}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 652325583}
+  - {fileID: 1472574844}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1178522600
 GameObject:
   m_ObjectHideFlags: 0
@@ -5502,6 +5610,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5be579ef2b9319e40846197a5ba3fff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1472574843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1472574844}
+  - component: {fileID: 1472574845}
+  m_Layer: 0
+  m_Name: Tagilla
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1472574844
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472574843}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1165577249}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1472574845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472574843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95557b9a0836a3e4eb47c5a67ac9cf24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  defense: 1
+  health: 20
+  critChance: 0.1
+  critMultiplier: 2
+  dodgeChance: 0.1
+  damageVariance: 0.1
+  enemyName: Tagilla
+  enemyIcon: {fileID: 21300000, guid: 3c9dce8be0a04ac4b8fb8d28f4304401, type: 3}
+  maxHealth: 20
+  spawnChance: 0.5
 --- !u!1 &1482561888
 GameObject:
   m_ObjectHideFlags: 0
@@ -6400,6 +6563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19fa7c0261dd9ee4690fd1ff3fbd692f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseXP: 100
+  exponent: 1.5
 --- !u!114 &1712145086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6691,7 +6856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56f8ee5e6cd2e1419b70dc97bc3825d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyManager: {fileID: 583769093}
+  enemyManager: {fileID: 0}
   player: {fileID: 1712145086}
   currentEnemy: {fileID: 0}
   raids: []
@@ -7607,3 +7772,4 @@ SceneRoots:
   - {fileID: 1495500554}
   - {fileID: 1864917544}
   - {fileID: 583769094}
+  - {fileID: 1165577249}
