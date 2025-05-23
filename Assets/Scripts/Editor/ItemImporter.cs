@@ -4,7 +4,7 @@ using System.IO;
 
 public class ItemImporter : EditorWindow
 {
-    [MenuItem("Tools/IdleGame/Import Items from CSV")]
+    [MenuItem("Tools/Import Items from CSV")]
     public static void ImportItemsFromCSV()
     {
         string csvPath = "Assets/Data/Items.csv";

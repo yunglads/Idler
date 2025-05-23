@@ -1,11 +1,53 @@
 itemName,itemDesc,iconPath,itemType,isStackable,maxStack
-Iron Ore,A chunk of raw iron,Icons/Skills/Skillicon7_09,Resource,true,99
-Steel Sword,A sharp blade made of steel,Icons/Skills/Skillicon7_09,Weapon,false,1
-Leather Armor,Lightweight protective gear,Icons/Skills/Skillicon7_09,Armor,false,1
-Health Potion,Restores a small amount of health,Icons/Skills/Skillicon7_09,Consumable,true,20
-Pickaxe,Used to mine ores,Icons/Skills/Skillicon7_09,Tool,false,1
-Copper Bar,Smelted copper ready for use,Icons/Skills/Skillicon7_09,Resource,true,99
-Mana Potion,Restores a small amount of mana,Icons/Skills/Skillicon7_09,Consumable,true,20
-Steel Helmet,Sturdy head protection,Icons/Skills/Skillicon7_09,Armor,false,1
-Wooden Club,Crude weapon made from wood,Icons/Skills/Skillicon7_09,Weapon,false,1
-Stone Block,Used for building,Icons/Skills/Skillicon7_09,Resource,true,99
+Bandage,Restores a small amount of health,Icons/Skills/Skillicon7_09,Consumable,TRUE,20
+LEDX Skin Transilluminator,Medical device used to find veins under the skin,Icons/Skills/Skillicon7_09,Resource,FALSE,1
+GPU,High-performance video card used in mining rigs,Icons/Skills/Skillicon7_09,Resource,FALSE,1
+Physical Bitcoin,Digital currency stored on a physical medium,Icons/Skills/Skillicon7_09,Valuable,FALSE,1
+Ophthalmoscope,Medical tool for eye examinations,Icons/Skills/Skillicon7_09,Resource,TRUE,5
+Defibrillator,Medical device used to restore heart rhythm,Icons/Skills/Skillicon7_09,Resource,TRUE,3
+Thumb Drive,Portable storage device containing valuable data,Icons/Skills/Skillicon7_09,Resource,TRUE,10
+Military Battery,High-capacity battery used in military equipment,Icons/Skills/Skillicon7_09,Resource,FALSE,1
+Virtex Programmable Processor,Advanced processor used in military systems,Icons/Skills/Skillicon7_09,Resource,FALSE,1
+GameGuy Game Console,Handheld game console,Icons/Skills/Skillicon7_09,Resource,FALSE,1
+Intelligence Folder,Confidential documents with valuable information,Icons/Skills/Skillicon7_09,Resource,FALSE,1
+SSD Drive,Solid-state drive used for data storage,Icons/Skills/Skillicon7_09,Resource,TRUE,5
+CPU Fan,Cooling fan for computer processors,Icons/Skills/Skillicon7_09,Resource,TRUE,3
+RAM,Random Access Memory module,Icons/Skills/Skillicon7_09,Resource,TRUE,5
+PSU,Component supplying power to electronic devices,Icons/Skills/Skillicon7_09,Resource,FALSE,1
+Broken Phone,Non-functional smartphone,Icons/Skills/Skillicon7_09,Resource,TRUE,20
+CPU,Central Processing Unit for computers,Icons/Skills/Skillicon7_09,Resource,TRUE,10
+Circuit Board,Electronic board used in various devices,Icons/Skills/Skillicon7_09,Resource,TRUE,3
+Powercord,Electrical cable for powering devices,Icons/Skills/Skillicon7_09,Resource,TRUE,3
+Gas Analyzer,Device measuring gas concentrations,Icons/Skills/Skillicon7_09,Resource,TRUE,5
+UV Lamp,Ultraviolet lamp used for various purposes,Icons/Skills/Skillicon7_09,Resource,TRUE,20
+Energy-saving Lamp,Efficient lighting device,Icons/Skills/Skillicon7_09,Resource,TRUE,20
+Geiger Counter,Device detecting radiation levels,Icons/Skills/Skillicon7_09,Resource,TRUE,3
+Military Thumb Drive,Secure storage device used by military,Icons/Skills/Skillicon7_09,Resource,TRUE,10
+FP-100 Filter Absorber,Air filtration component,Icons/Skills/Skillicon7_09,Resource,FALSE,1
+Military Circuit Board,Advanced circuit board for military tech,Icons/Skills/Skillicon7_09,Resource,TRUE,3
+Phased Array Element,Component used in radar systems,Icons/Skills/Skillicon7_09,Resource,FALSE,1
+Portable Defibrillator,Compact device for emergency heart resuscitation,Icons/Skills/Skillicon7_09,Resource,FALSE,1
+Medical Bloodset,Set of medical tools for blood transfusion,Icons/Skills/Skillicon7_09,Medical,TRUE,25
+Saline Solution,Sterile solution for medical use,Icons/Skills/Skillicon7_09,Medical,TRUE,40
+Disposable Syringe,Single-use syringe for injections,Icons/Skills/Skillicon7_09,Medical,TRUE,99
+Pile of Meds,Assortment of medical supplies,Icons/Skills/Skillicon7_09,Medical,TRUE,99
+Vaseline,Petroleum jelly used for protection and lubrication,Icons/Skills/Skillicon7_09,Medical,TRUE,40
+Ibuprofen,Pain reliever and anti-inflammatory medication,Icons/Skills/Skillicon7_09,Medical,TRUE,99
+Golden Star Balm,Herbal ointment for pain relief,Icons/Skills/Skillicon7_09,Medical,TRUE,99
+Sodium Bicarbonate,Compound used in cooking and cleaning,Icons/Skills/Skillicon7_09,Resource,TRUE,99
+Toothpaste,Oral hygiene product,Icons/Skills/Skillicon7_09,Resource,TRUE,99
+Shampoo,Cleansing product for hair,Icons/Skills/Skillicon7_09,Resource,TRUE,99
+Soap,Cleansing agent for skin,Icons/Skills/Skillicon7_09,Resource,TRUE,99
+Bleach,Chemical used for disinfection and whitening,Icons/Skills/Skillicon7_09,Consumable,TRUE,5
+WD-40 Lubricant,Multi-use product for lubrication and rust prevention,Icons/Skills/Skillicon7_09,Resource,TRUE,99
+Duct Tape,Adhesive tape for sealing and repairs,Icons/Skills/Skillicon7_09,Resource,TRUE,99
+Insulating Tape,Tape used for electrical insulation,Icons/Skills/Skillicon7_09,Resource,TRUE,20
+Screwdriver,Tool for driving screws,Icons/Skills/Skillicon7_09,Resource,TRUE,5
+Wrench,Tool used for gripping and turning objects,Icons/Skills/Skillicon7_09,Resource,TRUE,5
+Pliers,Tool used for gripping and bending materials,Icons/Skills/Skillicon7_09,Resource,TRUE,5
+Electric Drill,Power tool for drilling holes,Icons/Skills/Skillicon7_09,Resource,FALSE,1
+Hand Drill,Manual tool for drilling,Icons/Skills/Skillicon7_09,Resource,FALSE,1
+Measuring Tape,Tool for measuring lengths,Icons/Skills/Skillicon7_09,Resource,TRUE,5
+Bolt,Fastener used in construction and repairs,Icons/Skills/Skillicon7_09,Resource,TRUE,99
+Screw,Threaded fastener for joining materials,Icons/Skills/Skillicon7_09,Resource,TRUE,99
+Nail,Metal spike used in construction,Icons/Skills/Skillicon7_09,Resource,TRUE,99

@@ -6,7 +6,8 @@ public enum ItemType
     Tool,
     Armor,
     Weapon,
-    Consumable
+    Consumable,
+    Valuable
 }
 
 [CreateAssetMenu(menuName = "IdleGame/Item")]

@@ -1,0 +1,21 @@
+recipeName,ingredients,result,resultAmount
+Medical Bloodset,Ophthalmoscope:1;Saline Solution:2;Disposable Syringe:1,Medical Bloodset,1
+GPU,SSD Drive:1;RAM:2;CPU:1,GPU,1
+Thumb Drive,SSD Drive:1;Broken GPhone:1;Circuit Board:1,Thumb Drive,1
+PSU,CPU Fan:2;Circuit Board:1;Wrench:1,PSU,1
+SSD Drive,Thumb Drive:1;CPU:1;RAM:1,SSD Drive,1
+UV Lamp,Phased Array Element:1;Powercord:1;Circuit Board:1,UV Lamp,1
+Saline Solution,Soap:1;Toothpaste:1;Medical Bloodset:1,Saline Solution,1
+Ophthalmoscope,Golden Star Balm:1;Defibrillator:1;Screwdriver:1,Ophthalmoscope,1
+Defibrillator,Medical Bloodset:1;Circuit Board:1;Military Battery:1,Defibrillator,1
+GameGuy Game Console,CPU:1;RAM:2;Thumb Drive:1,GameGuy Game Console,1
+Pliers,Screwdriver:1;Bolts:2;Screws:2,Pliers,1
+Electric Drill,Bolts:2;Screws:2;Duct Tape:1,Electric Drill,1
+Hand Drill,Screws:2;Electric Drill:1;Measuring Tape:1,Hand Drill,1
+CPU Fan,Circuit Board:1;WD-40 Lubricant:1;Powercord:1,CPU Fan,1
+RAM,SSD Drive:1;Circuit Board:1;CPU:1,RAM,1
+Broken GPhone,Pliers:1;Flash Drive:1;Powercord:1,Broken GPhone,1
+Toothpaste,Soap:1;Shampoo:1;Saline Solution:1,Toothpaste,1
+Insulating Tape,Duct Tape:1;WD-40 Lubricant:1;Screws:1,Insulating Tape,1
+WD-40 Lubricant,Screwdriver:1;Screws:1;Bolts:1,WD-40 Lubricant,1
+Circuit Board,CPU:1;RAM:1;Powercord:1,Circuit Board,1

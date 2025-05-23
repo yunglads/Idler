@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4af691950443b24483931837b30f204, type: 3}
+  m_Name: UV Lamp
+  m_EditorClassIdentifier: 
+  recipeName: UV Lamp
+  ingredients:
+  - item: {fileID: 11400000, guid: 187bf6ff3936dcc45b5f8792d167d8d9, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: 61627ca70b59ce749bf0c188f762bfa7, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: 444a2c81d14523f4f92dc6532666b32b, type: 2}
+    amount: 1
+  result: {fileID: 11400000, guid: d6599fa28ef014b4fadf0bae15138317, type: 2}
+  resultAmount: 1

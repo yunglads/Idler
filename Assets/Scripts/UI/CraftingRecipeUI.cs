@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Text;
 
 public class CraftingRecipeUI : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class CraftingRecipeUI : MonoBehaviour
         recipeNameText.text = recipe.recipeName;
         resultIcon.sprite = recipe.result.icon;
 
+        StringBuilder sb = new StringBuilder();
+
         if (recipe.resultAmount > 1)
         {
             resultAmountText.text = recipe.resultAmount.ToString();
@@ -33,14 +36,20 @@ public class CraftingRecipeUI : MonoBehaviour
         // Add new ingredient icons
         foreach (var ingredient in recipe.ingredients)
         {
+            int owned = InventoryManager.Instance.GetAmount(ingredient.item);
+            int required = ingredient.amount;
+
             GameObject iconObj = Instantiate(ingredientIconPrefab, ingredientPanel);
             Image iconImage = iconObj.GetComponent<Image>();
             TextMeshProUGUI[] texts = iconObj.GetComponentsInChildren<TextMeshProUGUI>();
 
             iconImage.sprite = ingredient.item.icon;
 
-            if (texts.Length > 0 )
-                texts[0].text = ingredient.amount.ToString();
+            if (texts.Length > 0)
+            {
+                string color = owned >= required ? "#00FF00" : "#FFFFFF"; // green if enough, white if not
+                texts[0].text = $"<color={color}>{ingredient.amount}</color>";
+            }
 
             if (texts.Length > 1)
                 texts[1].text = ingredient.item.itemName;
@@ -50,6 +59,7 @@ public class CraftingRecipeUI : MonoBehaviour
         craftButton.onClick.AddListener(() =>
         {
             CraftingManager.Instance.Craft(recipe);
+            Setup(recipe);
         });
     }
 }

@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
     <Compile Include="Assets\Scripts\Editor\ItemBatchEditor.cs" />
+    <Compile Include="Assets\Scripts\Editor\CraftingRecipeImporter.cs" />
     <Compile Include="Assets\Scripts\Editor\ItemImporter.cs" />
   </ItemGroup>
   <ItemGroup>
