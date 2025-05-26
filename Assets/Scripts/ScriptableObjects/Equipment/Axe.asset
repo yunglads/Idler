@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 276d30f7ff690854fa7fa9b0abdda96f, type: 3}
-  m_Name: Anti-Rad Armor
+  m_Name: Axe
   m_EditorClassIdentifier: 
-  itemName: Anti-Rad Armor
-  itemDesc: Light defensive material used to protect against radiation
-  icon: {fileID: 21300000, guid: 119967e16cbb57c46a019ef5505a859b, type: 3}
-  itemType: 2
+  itemName: Axe
+  itemDesc: Common woodchopping axe meant to make logging faster
+  icon: {fileID: 21300000, guid: dd30124538076dc4ca535080715c70db, type: 3}
+  itemType: 1
   isStackable: 0
   maxStack: 1
   bonusHealth: 0
   bonusStamina: 0
   bonusFood: 0
   bonusWater: 0
-  slot: 1
-  relevantSkills: 
-  gatherSpeedMultiplier: 0
-  xpGainMultiplier: 0
+  slot: 0
+  relevantSkills: 01000000
+  gatherSpeedMultiplier: 1.5
+  xpGainMultiplier: 1.5
   bonusDamage: 0
-  bonusDefense: 1
+  bonusDefense: 0

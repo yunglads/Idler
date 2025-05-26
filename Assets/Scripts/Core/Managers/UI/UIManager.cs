@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
     {
         foreach (var go in uiPanels)
         {
-            if (go.name == "SkillsPanel")
+            if (go.name == "Skills")
             {
                 CloseAllUI();
                 go.SetActive(true);
@@ -58,7 +58,7 @@ public class UIManager : MonoBehaviour
     {
         foreach (var go in uiPanels)
         {
-            if (go.name == "RaidsPanel")
+            if (go.name == "Raids")
             {
                 CloseAllUI();
                 go.SetActive(true);

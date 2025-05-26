@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 276d30f7ff690854fa7fa9b0abdda96f, type: 3}
-  m_Name: Anti-Rad Armor
+  m_Name: Wooden Armor
   m_EditorClassIdentifier: 
-  itemName: Anti-Rad Armor
-  itemDesc: Light defensive material used to protect against radiation
-  icon: {fileID: 21300000, guid: 119967e16cbb57c46a019ef5505a859b, type: 3}
+  itemName: Wooden Armor
+  itemDesc: 'Crude armor made up of wood to protect your chest '
+  icon: {fileID: 21300000, guid: f5d7129a9afee1548b2133037246fbd3, type: 3}
   itemType: 2
   isStackable: 0
   maxStack: 1

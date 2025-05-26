@@ -3,8 +3,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Text;
+using UnityEngine.EventSystems;
 
-public class CraftingRecipeUI : MonoBehaviour
+public class CraftingRecipeUI : MonoBehaviour, IPointerClickHandler
 {
     public TMP_Text recipeNameText;
     public Button craftButton;
@@ -15,6 +16,15 @@ public class CraftingRecipeUI : MonoBehaviour
     public GameObject ingredientIconPrefab;
 
     private CraftingRecipe recipe;
+
+    private float lastClickTime = 0f;
+    private const float doubleClickThreshold = 0.3f;
+    public ItemPopup itemPopup;
+
+    private void Awake()
+    {
+        itemPopup = FindAnyObjectByType<ItemPopup>();
+    }
 
     public void Setup(CraftingRecipe newRecipe)
     {
@@ -59,8 +69,29 @@ public class CraftingRecipeUI : MonoBehaviour
         craftButton.onClick.AddListener(() =>
         {
             CraftingManager.Instance.Craft(recipe);
-            Setup(recipe);
+            RefreshUI();
         });
+    }
+
+    public void RefreshUI()
+    {
+        if (recipe != null)
+            Setup(recipe);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (recipe.result == null) return;
+
+        if (Time.time - lastClickTime < doubleClickThreshold)
+        {
+            if (recipe.result != null)
+            {
+                itemPopup.Show(recipe.result);
+            }
+        }
+
+        lastClickTime = Time.time;
     }
 }
 

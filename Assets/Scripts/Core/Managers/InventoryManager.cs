@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,6 +9,8 @@ public class InventoryManager : MonoBehaviour, IDropHandler
     
     private List<InventoryItem> items = new();
     public List<InventoryItem> GetAllItems() => items;
+
+    public static event Action OnInventoryChanged;
 
     public int maxInventorySize = 20;
 
@@ -63,6 +66,7 @@ public class InventoryManager : MonoBehaviour, IDropHandler
         }
 
         InventoryUIManager.Instance.Refresh();
+        OnInventoryChanged?.Invoke();
         return true;
     }
 
@@ -85,6 +89,7 @@ public class InventoryManager : MonoBehaviour, IDropHandler
             }
         }
         InventoryUIManager.Instance.Refresh();
+        OnInventoryChanged?.Invoke();
     }
 
     public int GetAmount(Item item)
@@ -128,6 +133,7 @@ public class InventoryManager : MonoBehaviour, IDropHandler
         maxInventorySize = Mathf.Clamp(maxInventorySize, 1, 100); // example max
 
         InventoryUIManager.Instance.Refresh();
+        OnInventoryChanged?.Invoke();
     }
 
     public void OnDrop(PointerEventData eventData)

@@ -15,6 +15,8 @@ public class PlayerStats : CombatantStats
     public TMP_Text healthText;
     public TMP_Text hungerText;
     public TMP_Text thirstText;
+    public TMP_Text damageText;
+    public TMP_Text defenseText;
 
     private void Awake()
     {
@@ -27,5 +29,7 @@ public class PlayerStats : CombatantStats
         healthText.text = health + "/" + maxHealth;
         hungerText.text = hunger + "/" + maxHunger;
         thirstText.text = thirst + "/" + maxThirst;
+        damageText.text = damage.ToString();
+        defenseText.text = defense.ToString();
     }
 }

@@ -13,8 +13,12 @@ MonoBehaviour:
   m_Name: Stone
   m_EditorClassIdentifier: 
   itemName: Stone
-  itemDesc: 
+  itemDesc: Raw stone used for crafting and building
   icon: {fileID: 21300000, guid: ea246b2022821f4499e21a5fb195004d, type: 3}
   itemType: 0
   isStackable: 1
-  maxStack: 10
+  maxStack: 99
+  bonusHealth: 0
+  bonusStamina: 0
+  bonusFood: 0
+  bonusWater: 0

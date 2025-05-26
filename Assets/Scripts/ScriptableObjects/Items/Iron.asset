@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cfabcce8a2c2dd49be60186be8b88a3, type: 3}
-  m_Name: Bandage
+  m_Name: Iron
   m_EditorClassIdentifier: 
-  itemName: Bandage
-  itemDesc: Disinfected rags used to regenerate a small amount of player health
-  icon: {fileID: 21300000, guid: 493200a596bee9648b681ea21f36e393, type: 3}
-  itemType: 4
+  itemName: Iron
+  itemDesc: Iron ore used for crafting and building
+  icon: {fileID: 21300000, guid: d17e2beda845ef0468b8da1bdac21455, type: 3}
+  itemType: 0
   isStackable: 1
-  maxStack: 20
-  bonusHealth: 10
+  maxStack: 99
+  bonusHealth: 0
   bonusStamina: 0
   bonusFood: 0
   bonusWater: 0

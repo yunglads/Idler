@@ -6,6 +6,8 @@ public class InventoryUIManager : MonoBehaviour
     public GameObject slotPrefab;
     public Transform inventoryGrid;
 
+    public CraftingUIManager craftingUIManager;
+
     public static InventoryUIManager Instance;
 
     private void Awake()
@@ -42,6 +44,8 @@ public class InventoryUIManager : MonoBehaviour
                 ui.Setup(null); // Empty slot
             }
         }
+
+        craftingUIManager?.RefreshAllRecipes();
     }
 }
 

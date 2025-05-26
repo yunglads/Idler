@@ -18,42 +18,17 @@ MonoBehaviour:
     minAmount: 5
     maxAmount: 25
     setAmount: 7
-    dropChance: 1
+    dropChance: 0.9
   - item: {fileID: 11400000, guid: 34fd063e52c12f240aedf8b9c9a41558, type: 2}
     minAmount: 1
-    maxAmount: 10
+    maxAmount: 3
     setAmount: 7
-    dropChance: 1
-  - item: {fileID: 11400000, guid: 0d0c62502d0f43c47b6439a85f0713f7, type: 2}
-    minAmount: 1
-    maxAmount: 2
-    setAmount: 7
-    dropChance: 0.116
-  - item: {fileID: 11400000, guid: 3b5c770072547db488a957e8a1d3d4de, type: 2}
-    minAmount: 1
-    maxAmount: 4
-    setAmount: 7
-    dropChance: 0.522
-  - item: {fileID: 11400000, guid: 025cba22c013e7d4d84e854c5d28e28a, type: 2}
-    minAmount: 1
-    maxAmount: 25
-    setAmount: 7
-    dropChance: 0.941
-  - item: {fileID: 11400000, guid: 3e7ce08abfe48a740a0d06153d20ac56, type: 2}
+    dropChance: 0.75
+  - item: {fileID: 11400000, guid: 9f7dac472d9e3604da884c40beb439c6, type: 2}
     minAmount: 1
     maxAmount: 1
     setAmount: 7
-    dropChance: 0.37
-  - item: {fileID: 11400000, guid: 82fabde7572ca2a449e12d1e5309f2b6, type: 2}
-    minAmount: 1
-    maxAmount: 1
-    setAmount: 7
-    dropChance: 0.101
-  - item: {fileID: 11400000, guid: aa24a1b69a4a2ae438f555685d43e463, type: 2}
-    minAmount: 1
-    maxAmount: 1
-    setAmount: 7
-    dropChance: 0.01
+    dropChance: 0.1
   minInterval: 20
   maxInterval: 60
   minEncounters: 1
