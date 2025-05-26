@@ -19,5 +19,9 @@ public class Item : ScriptableObject
     public ItemType itemType;
     public bool isStackable = true;
     public int maxStack = 99;
+    public int bonusHealth = 0;
+    public int bonusStamina = 0;
+    public int bonusFood = 0;
+    public int bonusWater = 0;
 }
 

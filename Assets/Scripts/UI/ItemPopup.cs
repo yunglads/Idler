@@ -9,6 +9,8 @@ public class ItemPopup : MonoBehaviour
     public TMP_Text itemNameText;
     public TMP_Text itemDescriptionText;
     public Button closeButton;
+    public GameObject useItemButton;
+    public Item currentItem;
 
     private void Awake()
     {
@@ -18,10 +20,33 @@ public class ItemPopup : MonoBehaviour
 
     public void Show(Item item)
     {
+        currentItem = item;
         iconImage.sprite = item.icon;
         itemNameText.text = item.itemName;
         itemDescriptionText.text = item.itemDesc;
         panel.SetActive(true);
+
+        if (item != null && item.itemType == ItemType.Consumable) 
+        {
+            useItemButton.SetActive(true);
+        }
+        else
+        {
+            useItemButton.SetActive(false);
+        }
+    }
+
+    public void UseConsumable()
+    {
+        if (currentItem != null)
+        {
+            PlayerStats.Instance.health += currentItem.bonusHealth;
+            PlayerStats.Instance.hunger += currentItem.bonusFood;
+            PlayerStats.Instance.thirst += currentItem.bonusWater;
+            InventoryManager.Instance.RemoveItem(currentItem);
+            panel.SetActive(false);
+            print("item used");
+        }
     }
 }
 

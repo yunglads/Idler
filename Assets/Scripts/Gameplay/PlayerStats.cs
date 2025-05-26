@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayerStats : CombatantStats
@@ -5,7 +6,15 @@ public class PlayerStats : CombatantStats
     public static PlayerStats Instance;
 
     public Sprite playerIcon;
-    public int maxHealth = 100;
+    private int maxHealth = 100;
+    public int hunger = 100;
+    private int maxHunger = 100;
+    public int thirst = 100;
+    private int maxThirst = 100;
+
+    public TMP_Text healthText;
+    public TMP_Text hungerText;
+    public TMP_Text thirstText;
 
     private void Awake()
     {
@@ -13,8 +22,10 @@ public class PlayerStats : CombatantStats
         else Destroy(gameObject);
     }
 
-    public void PayForHeals()
+    private void Update()
     {
-        health = maxHealth;
+        healthText.text = health + "/" + maxHealth;
+        hungerText.text = hunger + "/" + maxHunger;
+        thirstText.text = thirst + "/" + maxThirst;
     }
 }

@@ -46,7 +46,7 @@ public class UIManager : MonoBehaviour
     {
         foreach (var go in uiPanels)
         {
-            if (go.name == "CraftingPanel")
+            if (go.name == "CraftingScrollView")
             {
                 CloseAllUI();
                 go.SetActive(true);

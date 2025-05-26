@@ -18,3 +18,7 @@ MonoBehaviour:
   itemType: 4
   isStackable: 1
   maxStack: 5
+  bonusHealth: -25
+  bonusStamina: 0
+  bonusFood: 0
+  bonusWater: 10
