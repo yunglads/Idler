@@ -1,7 +1,5 @@
 using System.Collections;
-using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class FightController : MonoBehaviour
 {
@@ -34,15 +32,6 @@ public class FightController : MonoBehaviour
             raids = FindObjectsByType<RaidBehavior>(FindObjectsSortMode.None);
             print("looking for raids");
         }
-
-        //if (behavior != null && behavior.name == "Woods")
-        //{
-        //    enemyManager = GameObject.Find("WoodsEnemyManager").GetComponent<EnemyManager>();
-        //}
-        //if (behavior != null && behavior.name == "Mountians")
-        //{
-        //    enemyManager = GameObject.Find("MtsEnemyManager").GetComponent<EnemyManager>();
-        //}
     }
 
     public IEnumerator StartFight(RaidBehavior callingRaid)
@@ -84,6 +73,7 @@ public class FightController : MonoBehaviour
             if (player.health <= 0)
             {
                 player.health = 0;
+                handler.ForceUpdateUI();
                 callingRaid.raidSuccessful = false;
                 break;
             }
@@ -124,5 +114,10 @@ public class FightController : MonoBehaviour
         string critText = isCrit ? " (Critical!)" : "";
         //Debug.Log($"{attackerName} hits {defenderName} for {damageDealt} damage{critText}. {defenderName} health: {defender.health}");
         attackResult = $"{attackerName} hits {defenderName} for {damageDealt} damage{critText}.";
+    }
+
+    public void ClearCurrentEnemy()
+    {
+        currentEnemy = null;
     }
 }

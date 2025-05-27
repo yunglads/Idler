@@ -9,14 +9,22 @@ public class LootPopup : MonoBehaviour
     public GameObject popupUI;
     public GameObject lootUIPrefab;
     public Transform lootPanel;
+    public TMP_Text raidResultText;
 
     private void Awake()
     {
         popupUI.SetActive(false);
     }
 
+    public void ShowFailure()
+    {
+        raidResultText.text = "Raid Failed";
+        popupUI.SetActive(true);
+    }
+
     public void ShowLoot(List<GatherOutput> lootList)
     {
+        raidResultText.text = "Raid Sucessful";
         popupUI.SetActive(true);
 
         // Clear old icons

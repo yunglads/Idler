@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wooden Club
   m_EditorClassIdentifier: 
   itemName: Wooden Club
-  itemDesc: Crude bludgeoning weapon made from wood
+  itemDesc: Crude melee weapon made from wood
   icon: {fileID: 21300000, guid: 5de289aa769e24d49acc990036d6a161, type: 3}
   itemType: 3
   isStackable: 0

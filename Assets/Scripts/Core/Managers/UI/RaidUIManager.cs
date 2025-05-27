@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,7 @@ public class RaidUIManager : MonoBehaviour
 
     public static RaidUIManager Instance;
 
-    public Button closeUIButton;
+    public GameObject closeUIButton;
     public LootPopup lootPopup;
 
     void Start()
@@ -41,7 +42,8 @@ public class RaidUIManager : MonoBehaviour
 
     public void ShowFailureAndClose()
     {
-        lootPopup?.Hide(); // In case it was left open
+        lootPopup?.ShowFailure();
+        //FightUIHandler.Instance.fightPanel.SetActive(false);
         closeUIButton?.gameObject.SetActive(true);
     }
 }

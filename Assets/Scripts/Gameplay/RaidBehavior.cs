@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class RaidBehavior : MonoBehaviour
@@ -17,12 +16,16 @@ public class RaidBehavior : MonoBehaviour
 
         if (isActive && raidRoutine == null)
         {
+            raidSuccessful = true;
             raidRoutine = StartCoroutine(RunRaid());
         }
     }
 
     private IEnumerator RunRaid()
     {
+        FightUIHandler.Instance.ResetPanels();
+        FightController.Instance.ClearCurrentEnemy();  
+
         float gatherInterval = Random.Range(raid.minInterval, raid.maxInterval);
         float elapsed = 0f;
 
@@ -73,6 +76,7 @@ public class RaidBehavior : MonoBehaviour
                 if (!raidSuccessful)
                 {
                     HandleFailure();
+                    yield return new WaitForSeconds(3f);
                     yield break;
                 }
 
@@ -93,8 +97,10 @@ public class RaidBehavior : MonoBehaviour
     private void HandleFailure()
     {
         EquipmentManager.Instance.RemoveAllEquipment();
-        isActive = false;
         RaidUIManager.Instance.ShowFailureAndClose();
+        FightUIHandler.Instance.ForceUpdateUI();
+        //FightUIHandler.Instance.fightPanel.SetActive(false);
+        isActive = false; 
         raidRoutine = null;
     }
 

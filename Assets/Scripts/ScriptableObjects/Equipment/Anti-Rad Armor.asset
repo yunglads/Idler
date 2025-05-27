@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Anti-Rad Armor
   m_EditorClassIdentifier: 
   itemName: Anti-Rad Armor
-  itemDesc: Light defensive material used to protect against radiation
+  itemDesc: Light defensive armor used to protect against radiation
   icon: {fileID: 21300000, guid: 119967e16cbb57c46a019ef5505a859b, type: 3}
   itemType: 2
   isStackable: 0

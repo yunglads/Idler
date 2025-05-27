@@ -23,7 +23,7 @@ MonoBehaviour:
   bonusFood: 0
   bonusWater: 0
   slot: 3
-  relevantSkills: 0200000003000000
+  relevantSkills: 
   gatherSpeedMultiplier: 0
   xpGainMultiplier: 1.2
   bonusDamage: 3

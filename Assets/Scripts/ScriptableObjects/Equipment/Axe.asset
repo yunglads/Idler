@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Axe
   m_EditorClassIdentifier: 
   itemName: Axe
-  itemDesc: Common woodchopping axe meant to make logging faster
+  itemDesc: Common tool meant to make logging faster
   icon: {fileID: 21300000, guid: dd30124538076dc4ca535080715c70db, type: 3}
   itemType: 1
   isStackable: 0

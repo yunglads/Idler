@@ -8,6 +8,7 @@ public class FightUIHandler : MonoBehaviour
 {
     public GameObject fightPanel;
     public GameObject raidingPanel;
+    //public GameObject closeUIButton;
 
     public Image playerIcon, enemyIcon;
     public TMP_Text playerHealthText, playerDamageText, playerDefenseText, enemyHealthText, enemyDamageText, enemyDefenseText;
@@ -70,6 +71,13 @@ public class FightUIHandler : MonoBehaviour
     public void UpdateRaidTimer(float time)
     {
         raidTimerText.text = $"Time in Raid: {time:F1}s...";
+    }
+
+    public void ResetPanels()
+    {
+        StopAllCoroutines();
+        fightPanel.SetActive(false);
+        raidingPanel.SetActive(true);
     }
 
     public void ForceUpdateUI()

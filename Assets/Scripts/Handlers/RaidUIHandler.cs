@@ -7,13 +7,10 @@ public class RaidUIHandler : MonoBehaviour
 {
     public TextMeshProUGUI raidNameText;
     public TextMeshProUGUI raidTimeText;
-    //public TextMeshProUGUI raidSurvivalRateText;
     public Transform lootPanel;
     public GameObject lootIconPrefab;
-    //public Slider xpSlider;
     public Button toggleButton;
     public TextMeshProUGUI toggleButtonText;
-    //public TextMeshProUGUI itemText;
 
     private RaidBehavior raidBehavior;
     private Raid raid;
@@ -48,22 +45,14 @@ public class RaidUIHandler : MonoBehaviour
         {
             raidBehavior.ToggleActive();
             uiManager.OpenFightUI();
-            //FightController.Instance.StartRaid();
+            RaidUIManager.Instance.closeUIButton.SetActive(false);
             UpdateToggleText();
         });
     }
 
     void Update()
     {
-        //float xp = SkillManager.Instance.GetXP(raid);
-        //int level = SkillManager.Instance.GetLevel(raid);
-
-        raidTimeText.text = raid.minInterval + " - " + raid.maxInterval;
-        //raidSurvivalRateText.text = raid.survivalRate * 100 + "%";
-        //xpSlider.value = xp % 100f / 100f;
-
-        //double amount = InventoryManager.Instance.GetAmount(raid.outputItem);
-        //itemText.text = $"{skill.outputItem.itemName}: {amount:0}";
+        raidTimeText.text = raid.minInterval + " - " + raid.maxInterval + " secs ";
 
         UpdateToggleText();
 
