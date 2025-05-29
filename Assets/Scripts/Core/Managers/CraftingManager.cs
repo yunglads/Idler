@@ -30,7 +30,7 @@ public class CraftingManager : MonoBehaviour
         }
 
         InventoryManager.Instance.AddItem(recipe.result, recipe.resultAmount);
-        InventoryUIManager.Instance.Refresh(); // optional
+        InventoryUIManager.Instance.Refresh();
     }
 }
 

@@ -44,6 +44,7 @@ public class ItemPopup : MonoBehaviour
             PlayerStats.Instance.hunger += currentItem.bonusFood;
             PlayerStats.Instance.thirst += currentItem.bonusWater;
             InventoryManager.Instance.RemoveItem(currentItem);
+            InventoryUIManager.Instance.Refresh();
             panel.SetActive(false);
             print("item used");
         }

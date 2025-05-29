@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4af691950443b24483931837b30f204, type: 3}
+  m_Name: Med-Kit
+  m_EditorClassIdentifier: 
+  recipeName: Med-Kit
+  ingredients:
+  - item: {fileID: 11400000, guid: 34fd063e52c12f240aedf8b9c9a41558, type: 2}
+    amount: 2
+  - item: {fileID: 11400000, guid: b7d5e86d63a5e054c9d345f27cd49f5b, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: c11a2c7911cbbb94ea5d46f3866df38a, type: 2}
+    amount: 3
+  result: {fileID: 11400000, guid: 331adc222eb620744ad3082a77304bc9, type: 2}
+  resultAmount: 1

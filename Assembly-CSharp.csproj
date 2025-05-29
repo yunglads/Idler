@@ -101,7 +101,6 @@
     <Compile Include="Assets\Scripts\OfflineProgress.cs" />
     <Compile Include="Assets\Scripts\UI\LootPopup.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\InventoryManager.cs" />
-    <Compile Include="Assets\Scripts\UI\UseItem.cs" />
     <Compile Include="Assets\Scripts\Core\Managers\UI\CraftingUIManager.cs" />
   </ItemGroup>
   <ItemGroup>

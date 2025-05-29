@@ -116,13 +116,28 @@ public class RaidBehavior : MonoBehaviour
 
         foreach (var lootItem in raid.outputItems)
         {
-            if (Random.value <= lootItem.dropChance)
+            float roll = Random.value; // Generate the roll once per item
+            bool success = roll <= lootItem.dropChance;
+
+            // Log result
+            //Debug.Log($"Loot roll for {lootItem.item.itemName}: Rolled {roll:F2} (needed ? {lootItem.dropChance:F2}) — " +
+                      //(success ? "<color=green>SUCCESS</color>" : "<color=red>FAIL</color>"));
+
+            if (success)
             {
                 int randomAmount = Random.Range(lootItem.minAmount, lootItem.maxAmount + 1);
                 lootItem.setAmount = randomAmount;
                 InventoryManager.Instance.AddItem(lootItem.item, randomAmount);
                 grantedLoot.Add(lootItem);
             }
+
+            //if (Random.value <= lootItem.dropChance)
+            //{
+            //    int randomAmount = Random.Range(lootItem.minAmount, lootItem.maxAmount + 1);
+            //    lootItem.setAmount = randomAmount;
+            //    InventoryManager.Instance.AddItem(lootItem.item, randomAmount);
+            //    grantedLoot.Add(lootItem);
+            //}
         }
 
         InventoryUIManager.Instance.Refresh();

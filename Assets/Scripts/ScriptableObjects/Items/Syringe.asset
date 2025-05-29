@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cfabcce8a2c2dd49be60186be8b88a3, type: 3}
+  m_Name: Syringe
+  m_EditorClassIdentifier: 
+  itemName: Syringe
+  itemDesc: a medical device used to inject or withdraw fluids from the body
+  icon: {fileID: 21300000, guid: f4d8d1f53f73fd14fa391cc0768baec6, type: 3}
+  itemType: 0
+  isStackable: 1
+  maxStack: 50
+  bonusHealth: 0
+  bonusStamina: 0
+  bonusFood: 0
+  bonusWater: 0

@@ -1,30 +1,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using static CraftingRecipe;
 using UnityEngine.UI;
 
 public class LootPopup : MonoBehaviour
 {
     public GameObject popupUI;
+    public GameObject failPopupUI;
     public GameObject lootUIPrefab;
     public Transform lootPanel;
-    public TMP_Text raidResultText;
+    //public TMP_Text raidResultText;
 
     private void Awake()
     {
         popupUI.SetActive(false);
+        failPopupUI.SetActive(false);
     }
 
     public void ShowFailure()
     {
-        raidResultText.text = "Raid Failed";
-        popupUI.SetActive(true);
+        //raidResultText.text = "Raid Failed";
+        failPopupUI.SetActive(true);
     }
 
     public void ShowLoot(List<GatherOutput> lootList)
     {
-        raidResultText.text = "Raid Sucessful";
+        //raidResultText.text = "Raid Sucessful";
         popupUI.SetActive(true);
 
         // Clear old icons
@@ -45,6 +46,7 @@ public class LootPopup : MonoBehaviour
     public void Hide()
     {
         popupUI.SetActive(false);
+        failPopupUI.SetActive(false);
     }
 }
 

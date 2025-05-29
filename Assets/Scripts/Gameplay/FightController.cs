@@ -38,6 +38,8 @@ public class FightController : MonoBehaviour
     {
         behavior = callingRaid;
 
+        attackResult = "";
+
         if (behavior.name == "Woods")
         {
             enemyManager = GameObject.Find("WoodsEnemyManager").GetComponent<EnemyManager>();

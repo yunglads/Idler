@@ -17,23 +17,48 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 429610792f56d0841a7221c1aeff11b5, type: 2}
     minAmount: 1
     maxAmount: 10
-    setAmount: 5
+    setAmount: 6
     dropChance: 0.9
   - item: {fileID: 11400000, guid: a5e1b1b1245cdee4ba57802028951aa0, type: 2}
     minAmount: 1
     maxAmount: 10
-    setAmount: 5
+    setAmount: 3
     dropChance: 0.75
   - item: {fileID: 11400000, guid: 34fd063e52c12f240aedf8b9c9a41558, type: 2}
     minAmount: 1
     maxAmount: 3
     setAmount: 5
-    dropChance: 0.8
+    dropChance: 0.3
   - item: {fileID: 11400000, guid: 9f7dac472d9e3604da884c40beb439c6, type: 2}
     minAmount: 1
     maxAmount: 2
     setAmount: 5
     dropChance: 0.1
+  - item: {fileID: 11400000, guid: 8cac904b5f544b3428706ed50147a229, type: 2}
+    minAmount: 1
+    maxAmount: 5
+    setAmount: 4
+    dropChance: 0.7
+  - item: {fileID: 11400000, guid: e5e16a1534834474e80ac4885ff3098d, type: 2}
+    minAmount: 1
+    maxAmount: 2
+    setAmount: 1
+    dropChance: 0.5
+  - item: {fileID: 11400000, guid: ff6c091caa3d2b8489541ed3da622354, type: 2}
+    minAmount: 1
+    maxAmount: 1
+    setAmount: 1
+    dropChance: 0.3
+  - item: {fileID: 11400000, guid: b7d5e86d63a5e054c9d345f27cd49f5b, type: 2}
+    minAmount: 1
+    maxAmount: 1
+    setAmount: 1
+    dropChance: 0.4
+  - item: {fileID: 11400000, guid: c11a2c7911cbbb94ea5d46f3866df38a, type: 2}
+    minAmount: 1
+    maxAmount: 3
+    setAmount: 1
+    dropChance: 0.6
   minInterval: 20
   maxInterval: 60
   minEncounters: 1

@@ -11,6 +11,7 @@ public class DragHandler : MonoBehaviour
     public Canvas canvas;
     public InventorySlotUI invDragSource;
     public EquipmentSlotUI equipDragSource;
+    public bool isDragging = false;
 
     void Awake()
     {
@@ -20,6 +21,7 @@ public class DragHandler : MonoBehaviour
 
     public void StartDrag(InventorySlotUI source)
     {
+        isDragging = true;
         invDragSource = source;
         dragImage.sprite = source.icon.sprite;
         dragImage.enabled = true;
@@ -27,6 +29,7 @@ public class DragHandler : MonoBehaviour
 
     public void StartDrag(EquipmentSlotUI source)
     {
+        isDragging = true;
         equipDragSource = source;
         dragImage.sprite = source.icon.sprite;
         dragImage.enabled = true;
@@ -44,6 +47,7 @@ public class DragHandler : MonoBehaviour
 
     public void EndDrag()
     {
+        isDragging = false;
         dragImage.enabled = false;
         invDragSource = null;
         equipDragSource = null;

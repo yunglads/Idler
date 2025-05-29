@@ -26,7 +26,12 @@ public class SkillBehavior : MonoBehaviour
             InventoryManager.Instance.AddItem(skill.outputItem, 1);
             float xpBonus = EquipmentManager.Instance.GetXPBonusMultiplier(skill.skillType);
             SkillManager.Instance.AddXP(skill, skill.baseXPPerGather * xpBonus);
-            InventoryUIManager.Instance.Refresh();
+
+            if (!DragHandler.Instance.isDragging)
+            {
+                InventoryUIManager.Instance.Refresh();
+            }
+            
 
             generateInterval = false;
 
@@ -38,7 +43,11 @@ public class SkillBehavior : MonoBehaviour
             timer = 0;
             InventoryManager.Instance.RemoveItem(skill.outputItem, 1);
             SkillManager.Instance.AddXP(skill, skill.baseXPPerGather);
-            InventoryUIManager.Instance.Refresh();
+
+            if (!DragHandler.Instance.isDragging)
+            {
+                InventoryUIManager.Instance.Refresh();
+            }
 
             generateInterval = false;
         }
