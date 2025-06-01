@@ -93,6 +93,11 @@ public class CraftingRecipeUI : MonoBehaviour, IPointerClickHandler
 
         lastClickTime = Time.time;
     }
+
+    public CraftingRecipe GetRecipe()
+    {
+        return recipe;
+    }
 }
 
 

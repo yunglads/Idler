@@ -6,7 +6,7 @@ public class InventoryUIManager : MonoBehaviour
     public GameObject slotPrefab;
     public Transform inventoryGrid;
 
-    public CraftingUIManager craftingUIManager;
+    public CraftingUIManager[] craftingUIManagers;
 
     public static InventoryUIManager Instance;
 
@@ -18,6 +18,7 @@ public class InventoryUIManager : MonoBehaviour
 
     void Start()
     {
+        craftingUIManagers = FindObjectsByType<CraftingUIManager>(FindObjectsSortMode.None);
         Refresh();
     }
 
@@ -45,7 +46,8 @@ public class InventoryUIManager : MonoBehaviour
             }
         }
 
-        craftingUIManager?.RefreshAllRecipes();
+        foreach (var manager in craftingUIManagers)
+            manager.RefreshAllRecipes();
     }
 }
 

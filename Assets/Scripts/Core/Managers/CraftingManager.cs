@@ -10,16 +10,6 @@ public class CraftingManager : MonoBehaviour
         Instance = this;
     }
 
-    public bool CanCraft(CraftingRecipe recipe)
-    {
-        foreach (var ingredient in recipe.ingredients)
-        {
-            if (!InventoryManager.Instance.HasItem(ingredient.item, ingredient.amount))
-                return false;
-        }
-        return true;
-    }
-
     public void Craft(CraftingRecipe recipe)
     {
         if (!CanCraft(recipe)) return;
@@ -31,6 +21,16 @@ public class CraftingManager : MonoBehaviour
 
         InventoryManager.Instance.AddItem(recipe.result, recipe.resultAmount);
         InventoryUIManager.Instance.Refresh();
+    }
+
+    public bool CanCraft(CraftingRecipe recipe)
+    {
+        foreach (var ingredient in recipe.ingredients)
+        {
+            if (!InventoryManager.Instance.HasItem(ingredient.item, ingredient.amount))
+                return false;
+        }
+        return true;
     }
 }
 

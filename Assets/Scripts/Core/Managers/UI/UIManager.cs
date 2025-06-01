@@ -3,6 +3,8 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public GameObject[] uiPanels;
+    public GameObject worldCanvas;
+    public Transform hideoutCamTarget;
 
     private void Start()
     {
@@ -74,6 +76,66 @@ public class UIManager : MonoBehaviour
             {
                 CloseAllUI();
                 go.SetActive(true);
+            }
+        }
+    }
+    
+    public void OpenHideoutUI()
+    {
+        if (!CameraController.Instance.isMoving)
+        {
+            CameraController.Instance.MoveToTarget(hideoutCamTarget);
+
+            foreach (var go in uiPanels)
+            {
+                CloseAllUI();
+            }
+
+            worldCanvas.SetActive(true);
+        }
+    }
+
+    public void OpenRestAreaUI()
+    {
+        if (!CameraController.Instance.isMoving)
+        {
+            foreach (var go in uiPanels)
+            {
+                if (go.name == "RestAreaCraftingScrollView")
+                {
+                    CloseAllUI();
+                    go.SetActive(true);
+                }
+            }
+        }
+    }
+
+    public void OpenKitchenUI()
+    {
+        if (!CameraController.Instance.isMoving)
+        {
+            foreach (var go in uiPanels)
+            {
+                if (go.name == "KitchenCraftingScrollView")
+                {
+                    CloseAllUI();
+                    go.SetActive(true);
+                }
+            }
+        }
+    }
+
+    public void OpenWeaponsUI()
+    {
+        if (!CameraController.Instance.isMoving)
+        {
+            foreach (var go in uiPanels)
+            {
+                if (go.name == "WeaponsCraftingScrollView")
+                {
+                    CloseAllUI();
+                    go.SetActive(true);
+                }
             }
         }
     }

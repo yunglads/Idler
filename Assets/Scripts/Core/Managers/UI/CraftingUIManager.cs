@@ -37,5 +37,39 @@ public class CraftingUIManager : MonoBehaviour
             ui.RefreshUI();
         }
     }
+
+    public CraftingRecipeUI GetUIForRecipe(CraftingRecipe recipe)
+    {
+        foreach (var ui in recipeUIs)
+        {
+            if (ui.GetRecipe() == recipe)
+            {
+                return ui;
+            }
+        }
+        return null;
+    }
+
+    public void RebuildRecipeList()
+    {
+        // Clear existing UI
+        foreach (Transform child in recipeListParent)
+        {
+            Destroy(child.gameObject);
+        }
+
+        recipeUIs.Clear();
+
+        // Recreate UI entries
+        foreach (var recipe in availableRecipes)
+        {
+            var go = Instantiate(recipeUIPrefab, recipeListParent);
+            var recipeUI = go.GetComponent<CraftingRecipeUI>();
+            recipeUI.Setup(recipe);
+            recipeUIs.Add(recipeUI);
+        }
+
+        RefreshAllRecipes();
+    }
 }
 
